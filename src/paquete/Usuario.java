@@ -5,8 +5,14 @@ public class Usuario {
 	private int dineroDisponible;
 	double tiempoDisponible;
 	// tipoFavorito TipoAtraccion;
-
-	public void aceptarOfertado() {
-
-	}
+	//ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
+	//ArrayList<Atraccion> atraccionesAceptadas = new ArrayList<Atraccion>();
+	//
+	//private int costoFinal;
+	//private double tiempoFinal;
+	
+	//	public void aceptarOfertado(Ofertable) {
+	// 			}
+		
+	
 }
