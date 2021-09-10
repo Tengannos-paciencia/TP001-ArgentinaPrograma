@@ -29,7 +29,6 @@ public class ManejadorDeArchivos {
 				int tiempoEnSegundos = Integer.parseInt(preferenciaUsuario[2]);
 				//tipoFavorito tipo = tipoFavorito.valueOf(preferenciaUsuario[3]);
 				
-
 				usuarios[indice++] = new Usuario(nombre, presupuesto, tiempoEnSegundos/*, tipo*/);
 				linea = br.readLine();
 			}
