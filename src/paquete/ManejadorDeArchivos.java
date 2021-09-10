@@ -96,7 +96,7 @@ public class ManejadorDeArchivos {
 		return atracciones;
 	}
 
-	public static Promocion[] obtenerPromosDesdeArchivo(Parque parque) {
+	public static Promocion[] obtenerPromosDesdeArchivo(Taquilla taquilla) {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
