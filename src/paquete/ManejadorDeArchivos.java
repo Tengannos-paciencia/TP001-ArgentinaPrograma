@@ -27,7 +27,7 @@ public class ManejadorDeArchivos {
 				String[] preferenciaUsuario = linea.split(",");
 
 				String nombre = preferenciaUsuario[0];
-				double presupuesto = Integer.parseInt(preferenciaUsuario[1]);
+				int presupuesto = Integer.parseInt(preferenciaUsuario[1]);
 				int tiempoEnSegundos = Integer.parseInt(preferenciaUsuario[2]);
 				TipoAtraccion tipo = TipoAtraccion.valueOf(preferenciaUsuario[3]);
 
