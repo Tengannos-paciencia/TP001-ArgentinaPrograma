@@ -1,29 +1,39 @@
 package paquete;
 
-public abstract class Ofertable implements Comparable<Ofertable> {
+import java.util.ArrayList;
+import java.util.List;
 
-	public boolean esPromocion() {
-		return false;
+public abstract class Ofertable {
+	protected List<Atraccion> atracciones = new ArrayList<Atraccion>();
+	protected int costoTotal;
+	protected double tiempoTotal;
 
-	}
-
-	public double calcularTiempo() {
-		return 0;
-
-	}
-
-	public int calcularCosto() {
-		return 0;
+	public Ofertable() {
 	}
 
 	public boolean cupoDisponible() {
+		for (Atraccion atraccion : atracciones) {
+			if (atraccion.getCupo() == 0) {
+				return false;
+			}
+		}
 		return true;
 	}
 
-	@Override
-	public int compareTo(Ofertable o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public String mostrarAtracciones() {
+		String atraccionesMostradas = "";
+		for (Atraccion atraccion : atracciones) {
+			atraccionesMostradas += atraccion.getNombre() + ", ";
+		}
+		return atraccionesMostradas;
 	}
+
+	public abstract int getCostoTotal();
+
+	public abstract double getTiempoTotal();
+
+	public abstract void setCostoTotal();
+
+	public abstract void setTiempoTotal();
 
 }

@@ -17,4 +17,9 @@ public class Taquilla {
 	public void sugerirAUsuario(Ofertable o) {
 
 	}
+
+	public Atraccion obtenerAtraccionPorNombreAtraccion(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
