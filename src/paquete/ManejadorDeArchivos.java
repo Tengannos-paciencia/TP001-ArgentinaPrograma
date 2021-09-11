@@ -27,9 +27,9 @@ public class ManejadorDeArchivos {
 				String nombre = preferenciaUsuario[0];
 				double presupuesto = Integer.parseInt(preferenciaUsuario[1]);
 				int tiempoEnSegundos = Integer.parseInt(preferenciaUsuario[2]);
-				//tipoFavorito tipo = tipoFavorito.valueOf(preferenciaUsuario[3]);
+				TipoAtraccion tipo = TipoAtraccion.valueOf(preferenciaUsuario[3]);
 				
-				usuarios[indice++] = new Usuario(nombre, presupuesto, tiempoEnSegundos/*, tipo*/);
+				usuarios[indice++] = new Usuario(nombre, presupuesto, tiempoEnSegundos, tipo);
 				linea = br.readLine();
 			}
 
@@ -67,16 +67,16 @@ public class ManejadorDeArchivos {
 			int indice = 0;
 			String linea = br.readLine();
 			while (linea != null) {
-				String[] datosAtraccion = linea.split(";");
+				String[] datosAtraccion = linea.split(",");
 				String nombre = datosAtraccion[0];
 				double costo = Double.parseDouble(datosAtraccion[1]);
 				double tiempo = Double.parseDouble(datosAtraccion[2]);
 				int cupo = Integer.parseInt(datosAtraccion[3]);
-				TipoDeAtraccion tipo = TipoDeAtraccion.valueOf(datosAtraccion[4]);
+				TipoAtraccion tipo = TipoAtraccion.valueOf(datosAtraccion[4]);
 
-				atracciones[indice] = new Atraccion(nombre, costo, tiempo, cupo, tipo);
+				atracciones[indice++] = new Atraccion(nombre, costo, tiempo, cupo, tipo);
 				// System.out.println(atracciones[indice]);
-				indice++;
+				//indice++;
 				linea = br.readLine();
 
 			}
@@ -114,45 +114,45 @@ public class ManejadorDeArchivos {
 
 			String linea = br.readLine();
 			while (linea != null) {
-				String[] datosPromo = linea.split(";");
+				String[] datosPromo = linea.split(",");
 
 				String tipoPromo = datosPromo[0];
 				String nombrePromo = datosPromo[1];
-				TipoDeAtraccion tipo = TipoDeAtraccion.valueOf(datosPromo[2]);
+				TipoAtraccion tipo = TipoAtraccion.valueOf(datosPromo[2]);
 
-				String[] atraccionesPromo = datosPromo[3].split(",");
+				String[] atraccionesPromo = datosPromo[3].split(".");
 				Atraccion[] atraccionesPromocion = new Atraccion[atraccionesPromo.length];
 
 				for (int i = 0; i < atraccionesPromo.length; i++) {
 
-					atraccionesPromocion[i] = parque.obtenerAtraccionPorNombreAtraccion(atraccionesPromo[i]);
+					atraccionesPromocion[i] = taquilla.obtenerAtraccionPorNombreAtraccion(atraccionesPromo[i]);
 				}
-				if (tipoPromo.equals("Porcentual")) {
+				if (tipoPromo.equals("PromoPorcentual")) {
 
 					double porciento = Double.parseDouble(datosPromo[4]);
-					promociones[indice++] = new Porcentual(tipoPromo, nombrePromo, tipo, atraccionesPromocion,
+					promociones[indice++] = new PromoPorcentual(tipoPromo, nombrePromo, tipo, atraccionesPromocion,
 							porciento);
 
 				}
-				if (tipoPromo.equals("Absoluta")) {
+				if (tipoPromo.equals("PromoAbsoluta")) {
 					int costoPromo = Integer.parseInt(datosPromo[4]);
-					promociones[indice++] = new Absoluta(tipoPromo, nombrePromo, tipo, atraccionesPromocion,
+					promociones[indice++] = new PromoAbsoluto(tipoPromo, nombrePromo, tipo, atraccionesPromocion,
 							costoPromo);
 
 				}
 
-				if (tipoPromo.equals("Combinada")) {
+				if (tipoPromo.equals("PromoCombinada")) {
 					// String[] atraccionesGratis = datosPromo[3].split(",");
 					// Atraccion atraccionesGratis = new Atraccion[atraccionesGratis.length];
 					Atraccion atraccionGratis = new Atraccion();
-					atraccionGratis = parque.obtenerAtraccionPorNombreAtraccion(datosPromo[4]);
+					atraccionGratis = taquilla.obtenerAtraccionPorNombreAtraccion(datosPromo[4]);
 					// for (int i = 0; i < atraccionesGratis.length; i++) {
 
 					// atraccionesRegalo[i] =
 					// parque.obtenerAtraccionPorNombreAtraccion(atraccionesGratis[i]);
 
 					// }
-					promociones[indice++] = new Combinada(nombrePromo, tipoPromo, tipo, atraccionesPromocion,
+					promociones[indice++] = new PromoAxB(nombrePromo, tipoPromo, tipo, atraccionesPromocion,
 							atraccionGratis);
 				}
 

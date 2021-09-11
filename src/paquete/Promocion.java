@@ -1,9 +1,12 @@
 package paquete;
 
 public class Promocion extends Ofertable {
-	private Atraccion atraccion[];
+	String tipoPromo;
+	TipoAtraccion tipoDeAtraccion;
+	String nombrePromocion;
+	Atraccion[] atraccionesEnPromocion;
 
-	public Promocion(Atraccion atraccion[]) {
-		this.atraccion = atraccion;
+	public Promocion(Atraccion[] atracciones) {
+		this.atraccionesEnPromocion = atracciones;
 	}
 }
