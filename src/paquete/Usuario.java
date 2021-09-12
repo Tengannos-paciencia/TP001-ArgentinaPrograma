@@ -10,8 +10,8 @@ public class Usuario extends Taquilla {
 	private TipoAtraccion tipoAtraccion;
 	ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
 	ArrayList<Atraccion> atraccionesAceptadas = new ArrayList<Atraccion>();
-	private int costoFinal = dineroDisponible;
-	private double tiempoFinal = tiempoDisponible;
+	private int costoFinal;
+	private double tiempoFinal;
 
 	public Usuario(String nombre, int presupuesto, int tiempoEnMinutos, TipoAtraccion tipo) {
 		this.nombre = nombre;
@@ -20,15 +20,49 @@ public class Usuario extends Taquilla {
 		this.tipoAtraccion = tipo;
 	}
 
+	public boolean puedeComprar(Ofertable o) {
+		if (dineroYTiempoSuficientes(o)) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean atraccionYaComprada(Ofertable o) {
+		if (o.esAtraccion()) {
+			return atraccionesAceptadas.contains(o);
+		}
+		if (o.esPromocion()) {
+			for (Ofertable atraccion : atraccionesAceptadas) {
+				return o.getAtracciones().contains(atraccion);
+			}
+
+		}
+		return false;
+	}
+
+	private boolean dineroYTiempoSuficientes(Ofertable o) {
+		return dineroDisponible > o.getCostoTotal() && tiempoDisponible > o.getTiempoTotal();
+	}
+
 	public void aceptarOfertado(Ofertable o) {
 		if (o.esPromocion()) {
 			promocionesAceptadas.add((Promocion) o);
-			costoFinal -= o.getCostoTotal();
-					}
+			contabilizarAceptado(o);
+			atraccionesAceptadas.addAll(o.getAtracciones());
+
+		}
 		if (o.esAtraccion()) {
 			atraccionesAceptadas.add((Atraccion) o);
-			tiempoFinal -= o.getTiempoTotal();
+			contabilizarAceptado(o);
 		}
+	}
+
+	private void contabilizarAceptado(Ofertable o) {
+
+		dineroDisponible -= o.getCostoTotal();
+		tiempoDisponible -= o.getTiempoTotal();
+		tiempoFinal += o.getTiempoTotal();
+		costoFinal += o.getCostoTotal();
 	}
 
 	public TipoAtraccion getTipoAtraccion() {
@@ -41,9 +75,9 @@ public class Usuario extends Taquilla {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre= " + nombre + ", Tipo de atraccion favorita= " + tipoAtraccion + ", Promociones compradas="
-				+ promocionesAceptadas + ", Atracciones compradas= " + atraccionesAceptadas + ", Costo total= " + costoFinal
-				+ ", Tiempo estimado= " + tiempoFinal + "]";
+		return "Usuario [nombre= " + nombre + ", Tipo de atraccion favorita= " + tipoAtraccion
+				+ ", Promociones compradas=" + promocionesAceptadas + ", Atracciones compradas= " + atraccionesAceptadas
+				+ ", Costo total= " + costoFinal + ", Tiempo estimado= " + tiempoFinal + "]";
 	}
-	
+
 }

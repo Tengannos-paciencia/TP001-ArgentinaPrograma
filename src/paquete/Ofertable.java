@@ -45,4 +45,5 @@ public abstract class Ofertable  {
 	public boolean esAtraccion() {
 		return (this instanceof Atraccion);
 	}
+	public abstract List<Atraccion> getAtracciones();
 }

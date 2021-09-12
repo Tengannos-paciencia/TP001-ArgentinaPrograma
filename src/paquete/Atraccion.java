@@ -1,5 +1,7 @@
 package paquete;
 
+import java.util.List;
+
 public class Atraccion extends Ofertable {
 	private String nombre;
 	private TipoAtraccion tipoDeAtraccion;
@@ -77,5 +79,10 @@ public class Atraccion extends Ofertable {
 	public String toString() {
 		return "Atraccion [nombre: " + nombre + ", costo: " + costo + " monedas de oro" + ", tiempo: " + tiempo
 				+ " horas" + ", cupo: " + cupo + ", tipo: " + tipoDeAtraccion + "]";
+	}
+
+	@Override
+	public List<Atraccion> getAtracciones() {
+		return null;
 	}
 }
