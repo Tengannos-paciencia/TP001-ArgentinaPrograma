@@ -1,5 +1,5 @@
 package paquete;
 
 public enum TipoAtraccion {
-	PAISAJE, AVENTURA, DEGUSTACION;
+	AUDIOVISUAL, TERROR, EXPLORACION;
 }
