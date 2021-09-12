@@ -28,10 +28,10 @@ public class ManejadorDeArchivos {
 
 				String nombre = preferenciaUsuario[0];
 				int presupuesto = Integer.parseInt(preferenciaUsuario[1]);
-				int tiempoEnSegundos = Integer.parseInt(preferenciaUsuario[2]);
+				int tiempoEnMinutos = Integer.parseInt(preferenciaUsuario[2]);
 				TipoAtraccion tipo = TipoAtraccion.valueOf(preferenciaUsuario[3]);
 
-				usuarios[indice++] = new Usuario(nombre, presupuesto, tiempoEnSegundos, tipo);
+				usuarios[indice++] = new Usuario(nombre, presupuesto, tiempoEnMinutos, tipo);
 				linea = br.readLine();
 			}
 

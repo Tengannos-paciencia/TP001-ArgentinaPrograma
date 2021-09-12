@@ -1,0 +1,11 @@
+10
+El sotano,8,30,4,Terror
+El laberinto,5,25,2,Exploracion
+La fabrica,10,40,7,Terror
+La mansion,15,45,10,Exploracion
+Almas perdidas,5,60,12,Audiovisual
+El pasillo,12,30,2,Exploracion
+La plantacion,6,50,12,Audiovisual
+La casona,20,30,20,Exploracion
+El rincon,2,15,3,Terror
+Texas,15,90,30,Exploracion

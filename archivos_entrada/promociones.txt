@@ -1,0 +1,4 @@
+3
+PromoPorcentual,Promo Explorador,Exploracion,El laberinto.La mansion.El pasillo,20
+PromoAbsoluta,Promo de Terror,Terror,El sotano.La fabrica,13
+PromoAxB,Promo Cine,Audiovisual,Almas perdidas.La plantacion
