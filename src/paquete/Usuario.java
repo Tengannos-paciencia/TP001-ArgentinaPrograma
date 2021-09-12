@@ -21,11 +21,11 @@ public class Usuario extends Taquilla {
 	}
 
 	public void aceptarOfertado(Ofertable o) {
-		if (o instanceof Promocion) {
+		if (o.esPromocion()) {
 			promocionesAceptadas.add((Promocion) o);
 			costoFinal -= o.getCostoTotal();
 					}
-		if (o instanceof Atraccion) {
+		if (o.esAtraccion()) {
 			atraccionesAceptadas.add((Atraccion) o);
 			tiempoFinal -= o.getTiempoTotal();
 		}

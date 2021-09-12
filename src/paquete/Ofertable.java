@@ -3,11 +3,11 @@ package paquete;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Ofertable {
+public abstract class Ofertable  {
 	protected List<Atraccion> atracciones = new ArrayList<Atraccion>();
 	protected int costoTotal;
 	protected double tiempoTotal;
-
+	TipoAtraccion tipoAtraccion;
 	public Ofertable() {
 	}
 
@@ -35,5 +35,14 @@ public abstract class Ofertable {
 	public abstract void setCostoTotal();
 
 	public abstract void setTiempoTotal();
-
+	
+	public TipoAtraccion getTipo() {
+		return this.tipoAtraccion;
+	}
+	public boolean esPromocion() {
+		return (this instanceof Promocion);
+	}
+	public boolean esAtraccion() {
+		return (this instanceof Atraccion);
+	}
 }

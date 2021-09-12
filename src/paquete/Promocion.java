@@ -42,7 +42,7 @@ public class Promocion extends Ofertable {
 		return nombre;
 	}
 
-	public TipoAtraccion getTipoDePromocion() {
+	public TipoAtraccion getTipo() {
 		return tipoDePromocion;
 	}
 

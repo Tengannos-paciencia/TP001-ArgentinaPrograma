@@ -2,7 +2,7 @@ package paquete;
 
 public class Atraccion extends Ofertable {
 	private String nombre;
-	private TipoAtraccion tipo;
+	private TipoAtraccion tipoDeAtraccion;
 	private double tiempo;
 	private double tiempoTotal;
 	private int costo;
@@ -13,7 +13,7 @@ public class Atraccion extends Ofertable {
 		this.tiempo = tiempo;
 		this.costo = costo;
 		this.cupo = cupo;
-		this.tipo = tipo;
+		this.tipoDeAtraccion = tipo;
 	}
 
 	public String getNombre() {
@@ -21,7 +21,7 @@ public class Atraccion extends Ofertable {
 	}
 
 	public TipoAtraccion getTipo() {
-		return this.tipo;
+		return this.tipoDeAtraccion;
 	}
 
 	public double getTiempo() {
@@ -76,6 +76,6 @@ public class Atraccion extends Ofertable {
 	@Override
 	public String toString() {
 		return "Atraccion [nombre: " + nombre + ", costo: " + costo + " monedas de oro" + ", tiempo: " + tiempo
-				+ " horas" + ", cupo: " + cupo + ", tipo: " + tipo + "]";
+				+ " horas" + ", cupo: " + cupo + ", tipo: " + tipoDeAtraccion + "]";
 	}
 }

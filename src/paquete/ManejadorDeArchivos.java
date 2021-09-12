@@ -165,8 +165,14 @@ public class ManejadorDeArchivos {
 	}
 
 	public static void crearItinerario(Usuario u) throws IOException {
-		PrintWriter salida = new PrintWriter(new File("itinerario" + u.getNombre() +".out"));
-		salida.println("hola");
+		PrintWriter salida = new PrintWriter(new File("itinerario" + u.getNombre() + ".out"));
+		try {
+			salida.println(u.toString());
+
+		} finally {
+			salida.close();
+
+		}
 	}
 
 }
