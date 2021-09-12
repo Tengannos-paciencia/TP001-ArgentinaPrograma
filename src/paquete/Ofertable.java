@@ -13,11 +13,11 @@ public abstract class Ofertable {
 
 	public boolean cupoDisponible() {
 		for (Atraccion atraccion : atracciones) {
-			if (atraccion.getCupo() == 0) {
-				return false;
+			if (atraccion.getCupo() > 0) {
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	public String mostrarAtracciones() {

@@ -164,4 +164,9 @@ public class ManejadorDeArchivos {
 		return promociones;
 	}
 
+	public static void crearItinerario(Usuario u) throws IOException {
+		PrintWriter salida = new PrintWriter(new File("itinerario" + u.getNombre() +".out"));
+		salida.println("hola");
+	}
+
 }
