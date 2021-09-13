@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 public class ComparadorDeOfertables implements Comparator<Ofertable> {
 	TipoAtraccion tipoFavorito;
+	
+	public ComparadorDeOfertables() {
+	}
 
 	public ComparadorDeOfertables(TipoAtraccion tipoFavorito) {
 		this.tipoFavorito = tipoFavorito;
