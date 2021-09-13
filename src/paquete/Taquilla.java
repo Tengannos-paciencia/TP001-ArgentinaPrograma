@@ -1,5 +1,7 @@
 package paquete;
 
+import java.util.Arrays;
+
 public class Taquilla {
 
 	private Promocion[] promociones;
@@ -53,5 +55,13 @@ public class Taquilla {
 			}
 		}
 		return null;
+	}
+	
+	public void ordenarLasPromociones() {
+		Arrays.sort(this.promociones, new ComparadorDeOfertables());
+	}
+
+	public void ordenarLasAtracciones() {
+		Arrays.sort(this.atracciones, new ComparadorDeOfertables());
 	}
 }
