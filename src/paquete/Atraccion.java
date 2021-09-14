@@ -3,11 +3,11 @@ package paquete;
 import java.util.List;
 
 public class Atraccion extends Ofertable {
-	private String nombre;
-	private TipoAtraccion tipoDeAtraccion;
-	private int tiempoEnMinutos;
-	private int costo;
-	private int cupo;
+	protected String nombre;
+	protected TipoAtraccion tipoDeAtraccion;
+	protected int tiempoEnMinutos;
+	protected int costo;
+	protected int cupo;
 
 	public Atraccion(String nombre, int costo, int tiempo, int cupo, TipoAtraccion tipo) {
 		this.nombre = nombre;
@@ -61,7 +61,7 @@ public class Atraccion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return "[" + nombre + ", costo: " + costo + " monedas" + ", tiempo: " + tiempoEnMinutos + ", cupo: "
+		return "[" + nombre + ", costo: " + costo + " monedas" + ", tiempo: " + tiempoEnMinutos + " minutos" + ", cupo: "
 				+ cupo + ", tipo: " + tipoDeAtraccion + "]";
 	}
 

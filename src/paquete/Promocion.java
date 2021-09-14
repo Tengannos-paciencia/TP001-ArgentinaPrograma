@@ -6,7 +6,7 @@ public class Promocion extends Ofertable {
 	protected Atraccion[] atracciones;
 	protected String nombre;
 	protected TipoAtraccion tipoDePromocion;
-	protected int precio;
+	protected int costo;
 	protected String tipoPromo;
 	protected int costoTotal;
 	protected int tiempoTotal;
@@ -21,7 +21,7 @@ public class Promocion extends Ofertable {
 		this.setTipoDePromocion();
 		this.setCostoTotal();
 		this.setTiempoTotal();
-		this.setPrecio();
+		this.setCosto();
 	}
 
 	public Promocion(String nombre, Atraccion[] atracciones, TipoAtraccion tipo, String tipoPromo) {
@@ -32,7 +32,7 @@ public class Promocion extends Ofertable {
 		this.setCostoTotal();
 		this.setTiempoTotal();
 		this.tipoPromo = tipoPromo;
-		this.setPrecio();
+		this.setCosto();
 	}
 
 	// posiblemente no sea necesario que las promociones sepan qué tipo de
@@ -43,7 +43,7 @@ public class Promocion extends Ofertable {
 	}
 
 	public int getPrecio() {
-		return precio;
+		return costo;
 	}
 
 	@Override
@@ -64,9 +64,9 @@ public class Promocion extends Ofertable {
 		this.tipoDePromocion = atracciones[0].getTipo();
 	}
 
-	public void setPrecio() {
+	public void setCosto() {
 		for (Atraccion atraccion : atracciones) {
-			this.precio += atraccion.getCosto();
+			this.costo += atraccion.getCosto();
 		}
 	}
 
@@ -83,7 +83,7 @@ public class Promocion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return "[nombre: " + nombre + ", tipo de promo: " + tipoPromo + ", atracciones:" + atracciones + "precio: " + precio + "]";
+		return "[nombre: " + nombre + ", tipo de promo: " + tipoPromo + ", atracciones:" + atracciones + "precio: " + costo + "]";
 	}
 
 }

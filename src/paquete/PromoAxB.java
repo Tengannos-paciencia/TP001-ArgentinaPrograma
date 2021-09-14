@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class PromoAxB extends Promocion {
 	private int costoSinDescuento;
-	private Atraccion[] atracciones;
 	private int atraccionGratis;
 
 	public PromoAxB(String nombre, TipoAtraccion tipo, Atraccion[] atracciones, int indiceAtraccionGratis) {
@@ -13,6 +12,7 @@ public class PromoAxB extends Promocion {
 		this.tipoDePromocion = tipo;
 		this.setCostoTotal();
 		this.atraccionGratis = indiceAtraccionGratis;
+		this.setTiempoTotal();
 	}
 
 	private int costoSinDescuento() {
@@ -29,7 +29,7 @@ public class PromoAxB extends Promocion {
 
 	@Override
 	public String toString() {
-		return "PROMO 2x1! incluye: " + Arrays.toString(atracciones) + "costo final: " + this.costoTotal + ", tiempo total: "
-				+ this.tiempoTotal;
+		return "PROMO 2x1! incluye: " + Arrays.toString(atracciones) + "costo final: " + this.costoTotal
+				+ ", tiempo total: " + this.tiempoTotal + " minutos";
 	}
 }

@@ -13,6 +13,7 @@ public class PromoAbsoluto extends Promocion {
 		this.setCostoTotal();
 		this.setTiempoTotal();
 	}
+
 	@Override
 	public void setCostoTotal() {
 		this.costoTotal = costoPromo;
@@ -21,7 +22,7 @@ public class PromoAbsoluto extends Promocion {
 	@Override
 	public String toString() {
 		return "PROMO GUISO ESPELUZNANTE incluye: " + Arrays.toString(atracciones) + "costo final: " + this.costoTotal
-				+ ", tiempo total: " + this.tiempoTotal;
+				+ ", tiempo total: " + this.tiempoTotal + " minutos";
 	}
 
 }
