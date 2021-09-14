@@ -1,6 +1,7 @@
 package paquete;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Promocion extends Ofertable {
 	protected Atraccion[] atracciones;
@@ -70,6 +71,25 @@ public class Promocion extends Ofertable {
 		}
 	}
 
+	public List<Atraccion> getListaAtracciones() {
+		ArrayList<Atraccion> lista = new ArrayList<Atraccion>();
+		
+		for (Atraccion atraccion : atracciones) {
+			String nombreAtraccion = atraccion.getNombre();
+			lista.add(obtenerAtraccionPorNombreAtraccion(nombreAtraccion));
+		}
+		return lista;
+	}
+
+	public Atraccion obtenerAtraccionPorNombreAtraccion(String nombreAtraccion) {
+		for (Atraccion atraccion : atracciones) {
+			if (atraccion.getNombre().equals(nombreAtraccion)) {
+				return atraccion;
+			}
+		}
+		return null;
+	}
+
 	@Override
 	public void setCostoTotal() {
 	}
@@ -83,7 +103,8 @@ public class Promocion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return "[nombre: " + nombre + ", tipo de promo: " + tipoPromo + ", atracciones:" + atracciones + "precio: " + costo + "]";
+		return "[nombre: " + nombre + ", tipo de promo: " + tipoPromo + ", atracciones:" + atracciones + "precio: "
+				+ costo + "]";
 	}
 
 }

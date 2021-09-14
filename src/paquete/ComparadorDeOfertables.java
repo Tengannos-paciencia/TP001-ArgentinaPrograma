@@ -14,11 +14,11 @@ public class ComparadorDeOfertables implements Comparator<Ofertable> {
 
 	@Override
 	public int compare(Ofertable o1, Ofertable o2) {
-		 if (o1 == null) {
-	            if (o2 == null) {
-	                return 0;
-	            }
-		 }
+		if (o1 == null || o2 == null) {
+
+			return 0;
+
+		}
 		double diferenciaCosto = o2.getCostoTotal() - o1.getCostoTotal();
 		double diferenciaTiempo = o2.getTiempoTotal() - o1.getTiempoTotal();
 		if (o1.getTipo() == tipoFavorito && o2.getTipo() != tipoFavorito) {
@@ -26,7 +26,7 @@ public class ComparadorDeOfertables implements Comparator<Ofertable> {
 		} else if (o1.getTipo() != tipoFavorito && o2.getTipo() == tipoFavorito) {
 			return -1;
 		}
-		
+
 		if (o1.esPromocion() && o2.esAtraccion()) {
 			return 1;
 		} else if (o1.esAtraccion() && o2.esPromocion()) {
@@ -36,6 +36,7 @@ public class ComparadorDeOfertables implements Comparator<Ofertable> {
 		if (diferenciaCosto != 0) {
 			return diferenciaCosto > 0 ? 1 : (diferenciaCosto < 0 ? -1 : 0);
 		}
-		
-		return diferenciaTiempo > 0 ? 1 : (diferenciaTiempo < 0 ? -1 : 0);	}
+
+		return diferenciaTiempo > 0 ? 1 : (diferenciaTiempo < 0 ? -1 : 0);
+	}
 }

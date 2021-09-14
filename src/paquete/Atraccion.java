@@ -61,12 +61,12 @@ public class Atraccion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return "[" + nombre + ", costo: " + costo + " monedas" + ", tiempo: " + tiempoEnMinutos + " minutos" + ", cupo: "
-				+ cupo + ", tipo: " + tipoDeAtraccion + "]";
+		return "[" + nombre + ", costo: " + costo + " monedas" + ", tiempo: " + tiempoEnMinutos + " minutos"
+				+ ", cupo: " + cupo + ", tipo: " + tipoDeAtraccion + "]";
 	}
 
 	@Override
-	public List<Atraccion> getAtracciones() {
+	public Atraccion[] getAtracciones() {
 		return null;
 	}
 

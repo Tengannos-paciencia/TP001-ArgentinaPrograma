@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Ofertable  {
+public abstract class Ofertable {
 	protected Atraccion[] atracciones;
 	protected int costoTotal;
 	protected int tiempoTotal;
 	TipoAtraccion tipoAtraccion;
+
 	public Ofertable() {
 	}
 
@@ -36,19 +37,25 @@ public abstract class Ofertable  {
 	public abstract void setCostoTotal();
 
 	public abstract void setTiempoTotal();
-	
+
 	public TipoAtraccion getTipo() {
 		return this.tipoAtraccion;
 	}
+
 	public boolean esPromocion() {
 		return (this instanceof Promocion);
 	}
+
 	public boolean esAtraccion() {
 		return (this instanceof Atraccion);
 	}
-	public  List<Atraccion> getAtracciones() {
+
+	public Atraccion[] getAtracciones() {
+		return atracciones;
+	}
+
+	public List<Atraccion> getListaAtracciones() {
 		return Arrays.asList(atracciones);
 	}
-	
-	
+
 }

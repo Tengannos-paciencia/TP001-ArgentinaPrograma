@@ -56,7 +56,7 @@ public class Taquilla {
 		}
 		return null;
 	}
-	
+
 	public void ordenarLasPromociones() {
 		Arrays.sort(this.promociones, new ComparadorDeOfertables());
 	}
