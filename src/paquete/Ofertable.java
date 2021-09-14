@@ -1,12 +1,13 @@
 package paquete;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class Ofertable  {
-	protected List<Atraccion> atracciones = new ArrayList<Atraccion>();
+	protected Atraccion[] atracciones;
 	protected int costoTotal;
-	protected double tiempoTotal;
+	protected int tiempoTotal;
 	TipoAtraccion tipoAtraccion;
 	public Ofertable() {
 	}
@@ -30,7 +31,7 @@ public abstract class Ofertable  {
 
 	public abstract int getCostoTotal();
 
-	public abstract double getTiempoTotal();
+	public abstract int getTiempoTotal();
 
 	public abstract void setCostoTotal();
 
@@ -45,5 +46,9 @@ public abstract class Ofertable  {
 	public boolean esAtraccion() {
 		return (this instanceof Atraccion);
 	}
-	public abstract List<Atraccion> getAtracciones();
+	public  List<Atraccion> getAtracciones() {
+		return Arrays.asList(atracciones);
+	}
+	
+	
 }

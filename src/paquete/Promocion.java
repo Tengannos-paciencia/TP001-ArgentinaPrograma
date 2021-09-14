@@ -1,28 +1,30 @@
 package paquete;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Promocion extends Ofertable {
-	protected List<Atraccion> atracciones = new ArrayList<Atraccion>();
+	protected Atraccion[] atracciones;
 	protected String nombre;
 	protected TipoAtraccion tipoDePromocion;
 	protected int precio;
 	protected String tipoPromo;
+	protected int costoTotal;
+	protected int tiempoTotal;
 
 	public Promocion() {
 	}
 
-	public Promocion(String nombre, List<Atraccion> atracciones, TipoAtraccion tipo) {
+	public Promocion(String nombre, Atraccion[] atracciones, TipoAtraccion tipo) {
 		this.atracciones = atracciones;
 		this.nombre = nombre;
 		this.tipoDePromocion = tipo;
 		this.setTipoDePromocion();
 		this.setCostoTotal();
 		this.setTiempoTotal();
+		this.setPrecio();
 	}
 
-	public Promocion(String nombre, List<Atraccion> atracciones, TipoAtraccion tipo, String tipoPromo) {
+	public Promocion(String nombre, Atraccion[] atracciones, TipoAtraccion tipo, String tipoPromo) {
 		this.atracciones = atracciones;
 		this.nombre = nombre;
 		this.tipoDePromocion = tipo;
@@ -30,17 +32,11 @@ public class Promocion extends Ofertable {
 		this.setCostoTotal();
 		this.setTiempoTotal();
 		this.tipoPromo = tipoPromo;
+		this.setPrecio();
 	}
 
 	// posiblemente no sea necesario que las promociones sepan qué tipo de
 	// promociones son
-	public List<Atraccion> getAtracciones() {
-		return atracciones;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
 
 	public TipoAtraccion getTipo() {
 		return tipoDePromocion;
@@ -56,7 +52,7 @@ public class Promocion extends Ofertable {
 	}
 
 	@Override
-	public double getTiempoTotal() {
+	public int getTiempoTotal() {
 		return tiempoTotal;
 	}
 
@@ -65,7 +61,7 @@ public class Promocion extends Ofertable {
 	}
 
 	protected void setTipoDePromocion() {
-		this.tipoDePromocion = atracciones.get(0).getTipo();
+		this.tipoDePromocion = atracciones[0].getTipo();
 	}
 
 	public void setPrecio() {
@@ -84,4 +80,10 @@ public class Promocion extends Ofertable {
 			this.tiempoTotal += atraccion.getTiempo();
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "[nombre: " + nombre + ", tipo de promo: " + tipoPromo + ", atracciones:" + atracciones + "precio: " + precio + "]";
+	}
+
 }

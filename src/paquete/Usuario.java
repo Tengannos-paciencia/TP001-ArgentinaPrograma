@@ -11,7 +11,7 @@ public class Usuario extends Taquilla {
 	ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
 	ArrayList<Atraccion> atraccionesAceptadas = new ArrayList<Atraccion>();
 	private int costoFinal;
-	private double tiempoFinal;
+	private int tiempoFinal;
 
 	public Usuario(String nombre, int presupuesto, int tiempoEnMinutos, TipoAtraccion tipo) {
 		this.nombre = nombre;
@@ -75,9 +75,9 @@ public class Usuario extends Taquilla {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre= " + nombre + ", Tipo de atraccion favorita= " + tipoAtraccion
+		return  nombre + ", Tipo de atraccion favorita= " + tipoAtraccion
 				+ ", Promociones compradas=" + promocionesAceptadas + ", Atracciones compradas= " + atraccionesAceptadas
-				+ ", Costo total= " + costoFinal + ", Tiempo estimado= " + tiempoFinal + "]";
+				+ ", Costo total= " + costoFinal + ", Tiempo estimado= " + tiempoFinal + "\n";
 	}
 
 }

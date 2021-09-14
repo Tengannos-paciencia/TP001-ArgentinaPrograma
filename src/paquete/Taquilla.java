@@ -44,8 +44,8 @@ public class Taquilla {
 
 	@Override
 	public String toString() {
-		return "Parque del Terror [atracciones=\n" + atracciones + ", promociones=\n"
-				+ promociones + ", usuarios=\n" + usuarios + "]";
+		return "Parque del Terror [atracciones=" + Arrays.toString(atracciones) + ", promociones=\n"
+				+ Arrays.toString(promociones) + ", usuarios=\n" + Arrays.toString(usuarios) + "]";
 	}
 
 	public Atraccion obtenerAtraccionPorNombreAtraccion(String nombreAtraccion) {

@@ -1,25 +1,26 @@
 package paquete;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class PromoPorcentual extends Promocion {
+	private int porcentajeDescuento;
+	protected int costoTotal;
 
-	int porcentajeDescuento;
-
-	public PromoPorcentual(String nombrePromo, TipoAtraccion tipo, List<Atraccion> atracciones,
-			int porcentajeDescuento) {
+	public PromoPorcentual(String nombre, TipoAtraccion tipo, Atraccion[] atracciones, int porcentajeDescuento) {
 		this.porcentajeDescuento = porcentajeDescuento;
+		this.atracciones = atracciones;
+		this.nombre = nombre;
+		this.tipoDePromocion = tipo;
+		this.setCostoTotal();
 	}
-
+	@Override
 	public void setCostoTotal() {
-		int descuento = porcentajeDescuento * this.precio / 100;
-		this.costoTotal = this.precio - descuento;
+		this.costoTotal = this.precio * (100 - porcentajeDescuento );
 	}
 
 	@Override
 	public String toString() {
-		return "PROMO! [porcentaje de descuento: " + porcentajeDescuento + ", nombre: " + nombre + ", atracciones: "
-				+ atracciones + ", precio: " + precio + ", costo total: " + costoTotal + ", tipo de promocion: "
-				+ tipoDePromocion + ", tiempo total: " + tiempoTotal + "]";
+		return "PROMO 25% OFF! incluye: " + Arrays.toString(atracciones) + "costo final: " + this.getCostoTotal()
+				+ ", tiempo total: " + this.getTiempoTotal();
 	}
 }

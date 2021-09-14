@@ -1,23 +1,27 @@
 package paquete;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class PromoAbsoluto extends Promocion {
 	private int costoPromo;
 
-	public PromoAbsoluto(String nombre, TipoAtraccion tipo, List<Atraccion> atraccionesPromocion, int costoPromo) {
+	public PromoAbsoluto(String nombre, TipoAtraccion tipo, Atraccion[] atraccionesPromocion, int costoPromo) {
 		this.costoPromo = costoPromo;
-
+		this.atracciones = atraccionesPromocion;
+		this.nombre = nombre;
+		this.tipoDePromocion = tipo;
+		this.setCostoTotal();
+		this.setTiempoTotal();
 	}
-
+	@Override
 	public void setCostoTotal() {
 		this.costoTotal = costoPromo;
 	}
 
 	@Override
 	public String toString() {
-		return "PROMO! [nombre: " + nombre + ", atracciones: " + atracciones + ", precio: " + precio + ", costo total: "
-				+ costoTotal + ", tipo de promocion: " + tipoDePromocion + ", tiempo total: " + tiempoTotal + "]";
+		return "PROMO GUISO ESPELUZNANTE incluye: " + Arrays.toString(atracciones) + "costo final: " + this.costoTotal
+				+ ", tiempo total: " + this.tiempoTotal;
 	}
 
 }

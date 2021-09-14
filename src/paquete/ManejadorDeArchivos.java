@@ -2,6 +2,7 @@ package paquete;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class ManejadorDeArchivos {
@@ -59,7 +60,7 @@ public class ManejadorDeArchivos {
 		Atraccion[] atracciones = null;
 
 		try {
-			archivo = new File("entrada/atracciones.txt");
+			archivo = new File("archivos_entrada/atracciones.txt");
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 
@@ -72,7 +73,7 @@ public class ManejadorDeArchivos {
 				String[] datosAtraccion = linea.split(",");
 				String nombre = datosAtraccion[0];
 				int costo = Integer.parseInt(datosAtraccion[1]);
-				double tiempo = Double.parseDouble(datosAtraccion[2]);
+				int tiempo = Integer.parseInt(datosAtraccion[2]);
 				int cupo = Integer.parseInt(datosAtraccion[3]);
 				TipoAtraccion tipo = TipoAtraccion.valueOf(datosAtraccion[4]);
 
@@ -106,7 +107,7 @@ public class ManejadorDeArchivos {
 		Promocion[] promociones = null;
 
 		try {
-			archivo = new File("entrada/promociones.txt");
+			archivo = new File("archivos_entrada/promociones.txt");
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 
@@ -122,13 +123,13 @@ public class ManejadorDeArchivos {
 				String nombrePromo = datosPromo[1];
 				TipoAtraccion tipo = TipoAtraccion.valueOf(datosPromo[2]);
 
-				String[] atraccionesPromo = datosPromo[3].split(".");
-				List<Atraccion> atraccionesPromocion = new ArrayList<Atraccion>();
-
+				String[] atraccionesPromo = datosPromo[3].split(";");
+				Atraccion[] atraccionesPromocion = new Atraccion[atraccionesPromo.length];
 				for (int i = 0; i < atraccionesPromo.length; i++) {
 
-					atraccionesPromocion.add(taquilla.obtenerAtraccionPorNombreAtraccion(atraccionesPromo[i]));
+					atraccionesPromocion[i] = taquilla.obtenerAtraccionPorNombreAtraccion(atraccionesPromo[i]);
 				}
+
 				if (tipoPromo.equals("PromoPorcentual")) {
 
 					int porciento = Integer.parseInt(datosPromo[4]);
@@ -142,8 +143,8 @@ public class ManejadorDeArchivos {
 				}
 
 				if (tipoPromo.equals("PromoAxB")) {
-					Atraccion atraccionGratis = taquilla.obtenerAtraccionPorNombreAtraccion(atraccionesPromo[0]);
-					promociones[indice++] = new PromoAxB(nombrePromo, tipo, atraccionesPromocion, atraccionGratis);
+					int indiceAtraccionGratis = Integer.parseInt(datosPromo[4]);
+					promociones[indice++] = new PromoAxB(nombrePromo, tipo, atraccionesPromocion, indiceAtraccionGratis);
 				}
 
 				linea = br.readLine();
