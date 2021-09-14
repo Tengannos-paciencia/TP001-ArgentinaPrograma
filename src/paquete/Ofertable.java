@@ -13,14 +13,7 @@ public abstract class Ofertable {
 	public Ofertable() {
 	}
 
-	public boolean cupoDisponible() {
-		for (Atraccion atraccion : atracciones) {
-			if (atraccion.getCupo() > 0) {
-				return true;
-			}
-		}
-		return false;
-	}
+	public abstract boolean cupoDisponible();
 
 	public String mostrarAtracciones() {
 		String atraccionesMostradas = "";
@@ -54,8 +47,11 @@ public abstract class Ofertable {
 		return atracciones;
 	}
 
-	public List<Atraccion> getListaAtracciones() {
-		return Arrays.asList(atracciones);
-	}
+	public abstract List<Atraccion> getListaAtracciones();
+
+
+	protected abstract int getCosto();
+
+	protected abstract int getTiempo();
 
 }

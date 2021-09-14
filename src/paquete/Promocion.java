@@ -43,7 +43,16 @@ public class Promocion extends Ofertable {
 		return tipoDePromocion;
 	}
 
-	public int getPrecio() {
+	public boolean cupoDisponible() {
+		for (Atraccion atraccion : atracciones) {
+			if (atraccion.getCupo() > 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public int getCosto() {
 		return costo;
 	}
 
@@ -73,7 +82,7 @@ public class Promocion extends Ofertable {
 
 	public List<Atraccion> getListaAtracciones() {
 		ArrayList<Atraccion> lista = new ArrayList<Atraccion>();
-		
+
 		for (Atraccion atraccion : atracciones) {
 			String nombreAtraccion = atraccion.getNombre();
 			lista.add(obtenerAtraccionPorNombreAtraccion(nombreAtraccion));
@@ -105,6 +114,12 @@ public class Promocion extends Ofertable {
 	public String toString() {
 		return "[nombre: " + nombre + ", tipo de promo: " + tipoPromo + ", atracciones:" + atracciones + "precio: "
 				+ costo + "]";
+	}
+
+	@Override
+	protected int getTiempo() {
+		return tiempoTotal;
+
 	}
 
 }

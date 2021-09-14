@@ -25,7 +25,7 @@ public class Atraccion extends Ofertable {
 		return this.tipoDeAtraccion;
 	}
 
-	public double getTiempo() {
+	public int getTiempo() {
 		return this.tiempoEnMinutos;
 	}
 
@@ -35,13 +35,18 @@ public class Atraccion extends Ofertable {
 
 	@Override
 	public int getCostoTotal() {
-		return costoTotal;
+		return getCosto();
 	}
 
 	public int getCupo() {
 		return this.cupo;
 	}
-
+	public boolean cupoDisponible() {
+		if(this.getCupo()> 0) {
+			return true;
+		}
+		return false;
+	}
 	@Override
 	public void setTiempoTotal() {
 
@@ -68,10 +73,16 @@ public class Atraccion extends Ofertable {
 	@Override
 	public Atraccion[] getAtracciones() {
 		return null;
+
 	}
 
 	@Override
 	public int getTiempoTotal() {
-		return tiempoEnMinutos;
+		return getTiempo();
+	}
+
+	@Override
+	public List<Atraccion> getListaAtracciones() {
+		return null;
 	}
 }

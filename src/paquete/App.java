@@ -36,23 +36,24 @@ public class App {
 			TipoAtraccion atraccionFavorita = usuarios[i].getTipoAtraccion();
 
 			Arrays.sort(ofertas, new ComparadorDeOfertables(atraccionFavorita));
-			System.out.println("Bienvenido " + usuarios[i].getNombre() + " al Parque del terror");
+			System.out.println("Bienvenide " + usuarios[i].getNombre() + " al Parque del terror");
 
 			for (int j = 0; j < ofertas.length; j++) {
 				Ofertable oferta = ofertas[j];
-				if (usuarios[i].puedeComprar(oferta) && !usuarios[i].atraccionYaComprada(oferta)) {
+				if (usuarios[i].puedeComprar(oferta) && !usuarios[i].atraccionYaComprada(oferta)
+						&& oferta.cupoDisponible()) {
 					respuesta = "";
 					System.out.println(oferta);
 					while (!respuesta.equalsIgnoreCase("Y") && !respuesta.equalsIgnoreCase("N")) {
 						System.out.println("Desea aceptar esta oferta? (Y/N)");
 						respuesta = consolita.nextLine();
-						
+
 					}
 					if (respuesta.equalsIgnoreCase("Y")) {
 						usuarios[i].aceptarOfertado(oferta);
-						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "dinero restante: "
-								+ usuarios[i].getDineroDisponible() + "tiempo restante: "
-								+ usuarios[i].getTiempoDisponible());
+						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n"
+								+ " (dinero restante: " + usuarios[i].getDineroDisponible() + " monedas,"
+								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)");
 					}
 
 				}

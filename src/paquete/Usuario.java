@@ -13,8 +13,10 @@ public class Usuario extends Taquilla {
 	private TipoAtraccion tipoAtraccion;
 	ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
 	ArrayList<Atraccion> atraccionesAceptadas = new ArrayList<Atraccion>();
+	Atraccion[] arrayAtraccionesAceptadas;
 	private int costoFinal;
 	private int tiempoFinal;
+	private int cantidadAtracciones = 0;
 
 	public Usuario(String nombre, int presupuesto, int tiempoEnMinutos, TipoAtraccion tipo) {
 		this.nombre = nombre;
@@ -31,14 +33,16 @@ public class Usuario extends Taquilla {
 	}
 
 	public boolean atraccionYaComprada(Ofertable o) {
-		if (o.esAtraccion()) {
-			return atraccionesAceptadas.contains(o);
+		if(arrayAtraccionesAceptadas != null) {
+			if (o.esAtraccion()) {
+			return Arrays.asList(arrayAtraccionesAceptadas).contains(o);
 		}
 		if (o.esPromocion()) {
-			for (Ofertable atraccion : atraccionesAceptadas) {
+			for (Ofertable atraccion : arrayAtraccionesAceptadas) {
 				return o.getListaAtracciones().contains(atraccion);
 			}
 
+		}
 		}
 		return false;
 	}
@@ -47,28 +51,48 @@ public class Usuario extends Taquilla {
 		if (o == null) {
 			return false;
 		}
-		return dineroDisponible > o.getCostoTotal() && tiempoDisponible > o.getTiempoTotal();
+		return (dineroDisponible > o.getCostoTotal() && tiempoDisponible > o.getTiempoTotal());
 	}
 
 	public void aceptarOfertado(Ofertable o) {
 		if (o.esPromocion()) {
 			promocionesAceptadas.add((Promocion) o);
 			contabilizarAceptado(o);
-			
-		}
+			arrayAtraccionesAceptadas = new Atraccion[o.getListaAtracciones().size() + cantidadAtracciones];
+			for (int i = 0; i < o.getListaAtracciones().size(); i++) {
+				arrayAtraccionesAceptadas[cantidadAtracciones + i] = o.getListaAtracciones().get(i);
+				arrayAtraccionesAceptadas[cantidadAtracciones + i].cupo--;
+			}
+				
+			}
 		if (o.esAtraccion()) {
-			atraccionesAceptadas.add((Atraccion) o);
+			arrayAtraccionesAceptadas = new Atraccion[++cantidadAtracciones];
+			arrayAtraccionesAceptadas[cantidadAtracciones - 1] = (Atraccion) o;
+			arrayAtraccionesAceptadas[cantidadAtracciones - 1].cupo--;
 			contabilizarAceptado(o);
+			atraccionesAceptadas.add((Atraccion) o);
+			
 		}
 	}
 
-	private void contabilizarAceptado(Ofertable o) {
+		
+	
 
+	private void contabilizarAceptado(Ofertable o) {
+		if (o.esPromocion()) {
 		dineroDisponible -= o.getCostoTotal();
 		tiempoDisponible -= o.getTiempoTotal();
 		tiempoFinal += o.getTiempoTotal();
 		costoFinal += o.getCostoTotal();
-	}
+		}
+		if(o.esAtraccion()) {
+			dineroDisponible -= o.getCosto();
+			tiempoDisponible -= o.getTiempo();
+			tiempoFinal += o.getTiempo();
+			costoFinal += o.getCosto();
+			}
+		}
+	
 
 	public int getTiempoDisponible() {
 		return tiempoDisponible;
@@ -88,8 +112,8 @@ public class Usuario extends Taquilla {
 
 	@Override
 	public String toString() {
-		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + ", Promociones compradas:"
-				+ promocionesAceptadas + ", Atracciones compradas: " + atraccionesAceptadas + ", Costo total: "
+		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\n" + ", Promociones compradas:"
+				+ promocionesAceptadas + "\n" + ", Atracciones sin promo compradas: " + atraccionesAceptadas + ", Costo total: "
 				+ costoFinal + ", Tiempo estimado: " + tiempoFinal + "\n";
 	}
 
