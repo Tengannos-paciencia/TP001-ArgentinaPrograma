@@ -21,7 +21,7 @@ public class Usuario extends Taquilla {
 	}
 
 	public boolean puedeComprar(Ofertable o) {
-		if (dineroYTiempoSuficientes(o)) {
+		if (dineroYTiempoSuficientes(o) && o != null) {
 			return true;
 		}
 		return false;
@@ -41,6 +41,9 @@ public class Usuario extends Taquilla {
 	}
 
 	private boolean dineroYTiempoSuficientes(Ofertable o) {
+		 if (o == null) {
+			 return false;
+		 }
 		return dineroDisponible > o.getCostoTotal() && tiempoDisponible > o.getTiempoTotal();
 	}
 
@@ -75,9 +78,9 @@ public class Usuario extends Taquilla {
 
 	@Override
 	public String toString() {
-		return  nombre + ", Tipo de atraccion favorita= " + tipoAtraccion
-				+ ", Promociones compradas=" + promocionesAceptadas + ", Atracciones compradas= " + atraccionesAceptadas
-				+ ", Costo total= " + costoFinal + ", Tiempo estimado= " + tiempoFinal + "\n";
+		return  nombre + ", Tipo de atraccion favorita: " + tipoAtraccion
+				+ ", Promociones compradas:" + promocionesAceptadas + ", Atracciones compradas: " + atraccionesAceptadas
+				+ ", Costo total: " + costoFinal + ", Tiempo estimado: " + tiempoFinal + "\n";
 	}
 
 }

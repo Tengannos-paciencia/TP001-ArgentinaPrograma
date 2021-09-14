@@ -144,7 +144,8 @@ public class ManejadorDeArchivos {
 
 				if (tipoPromo.equals("PromoAxB")) {
 					int indiceAtraccionGratis = Integer.parseInt(datosPromo[4]);
-					promociones[indice++] = new PromoAxB(nombrePromo, tipo, atraccionesPromocion, indiceAtraccionGratis);
+					promociones[indice++] = new PromoAxB(nombrePromo, tipo, atraccionesPromocion,
+							indiceAtraccionGratis);
 				}
 
 				linea = br.readLine();
@@ -166,7 +167,7 @@ public class ManejadorDeArchivos {
 	}
 
 	public static void crearItinerario(Usuario u) throws IOException {
-		PrintWriter salida = new PrintWriter(new File("itinerario" + u.getNombre() + ".out"));
+		PrintWriter salida = new PrintWriter(new File("archivos_salida\\itinerario" + u.getNombre() + ".txt"));
 		try {
 			salida.println(u.toString());
 
