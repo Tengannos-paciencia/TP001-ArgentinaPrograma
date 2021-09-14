@@ -33,16 +33,16 @@ public class Usuario extends Taquilla {
 	}
 
 	public boolean atraccionYaComprada(Ofertable o) {
-		if(arrayAtraccionesAceptadas != null) {
+		if (arrayAtraccionesAceptadas != null) {
 			if (o.esAtraccion()) {
-			return Arrays.asList(arrayAtraccionesAceptadas).contains(o);
-		}
-		if (o.esPromocion()) {
-			for (Ofertable atraccion : arrayAtraccionesAceptadas) {
-				return o.getListaAtracciones().contains(atraccion);
+				return Arrays.asList(arrayAtraccionesAceptadas).contains(o);
 			}
+			if (o.esPromocion()) {
+				for (Ofertable atraccion : arrayAtraccionesAceptadas) {
+					return o.getListaAtracciones().contains(atraccion);
+				}
 
-		}
+			}
 		}
 		return false;
 	}
@@ -63,36 +63,32 @@ public class Usuario extends Taquilla {
 				arrayAtraccionesAceptadas[cantidadAtracciones + i] = o.getListaAtracciones().get(i);
 				arrayAtraccionesAceptadas[cantidadAtracciones + i].cupo--;
 			}
-				
-			}
+
+		}
 		if (o.esAtraccion()) {
 			arrayAtraccionesAceptadas = new Atraccion[++cantidadAtracciones];
 			arrayAtraccionesAceptadas[cantidadAtracciones - 1] = (Atraccion) o;
 			arrayAtraccionesAceptadas[cantidadAtracciones - 1].cupo--;
 			contabilizarAceptado(o);
 			atraccionesAceptadas.add((Atraccion) o);
-			
+
 		}
 	}
 
-		
-	
-
 	private void contabilizarAceptado(Ofertable o) {
 		if (o.esPromocion()) {
-		dineroDisponible -= o.getCostoTotal();
-		tiempoDisponible -= o.getTiempoTotal();
-		tiempoFinal += o.getTiempoTotal();
-		costoFinal += o.getCostoTotal();
+			dineroDisponible -= o.getCostoTotal();
+			tiempoDisponible -= o.getTiempoTotal();
+			tiempoFinal += o.getTiempoTotal();
+			costoFinal += o.getCostoTotal();
 		}
-		if(o.esAtraccion()) {
+		if (o.esAtraccion()) {
 			dineroDisponible -= o.getCosto();
 			tiempoDisponible -= o.getTiempo();
 			tiempoFinal += o.getTiempo();
 			costoFinal += o.getCosto();
-			}
 		}
-	
+	}
 
 	public int getTiempoDisponible() {
 		return tiempoDisponible;
@@ -113,8 +109,8 @@ public class Usuario extends Taquilla {
 	@Override
 	public String toString() {
 		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\n" + ", Promociones compradas:"
-				+ promocionesAceptadas + "\n" + ", Atracciones sin promo compradas: " + atraccionesAceptadas + ", Costo total: "
-				+ costoFinal + ", Tiempo estimado: " + tiempoFinal + "\n";
+				+ promocionesAceptadas + "\n" + ", Atracciones sin promo compradas: " + atraccionesAceptadas + "\n"
+				+ ", Costo total: " + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "\n";
 	}
 
 }

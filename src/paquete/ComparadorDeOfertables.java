@@ -21,9 +21,9 @@ public class ComparadorDeOfertables implements Comparator<Ofertable> {
 		}
 		double diferenciaCosto = o2.getCostoTotal() - o1.getCostoTotal();
 		double diferenciaTiempo = o2.getTiempoTotal() - o1.getTiempoTotal();
-		if (o1.getTipo() == tipoFavorito && o2.getTipo() != tipoFavorito) {
+		if (o1.getTipo() != tipoFavorito && o2.getTipo() == tipoFavorito) {
 			return 1;
-		} else if (o1.getTipo() != tipoFavorito && o2.getTipo() == tipoFavorito) {
+		} else if (o1.getTipo() == tipoFavorito && o2.getTipo() != tipoFavorito) {
 			return -1;
 		}
 

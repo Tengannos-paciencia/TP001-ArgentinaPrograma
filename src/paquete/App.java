@@ -36,7 +36,8 @@ public class App {
 			TipoAtraccion atraccionFavorita = usuarios[i].getTipoAtraccion();
 
 			Arrays.sort(ofertas, new ComparadorDeOfertables(atraccionFavorita));
-			System.out.println("Bienvenide " + usuarios[i].getNombre() + " al Parque del terror");
+			System.out
+					.println("*****Bienvenide " + usuarios[i].getNombre() + " al Parque del terror*****" + "\n" + "\n");
 
 			for (int j = 0; j < ofertas.length; j++) {
 				Ofertable oferta = ofertas[j];
@@ -51,9 +52,11 @@ public class App {
 					}
 					if (respuesta.equalsIgnoreCase("Y")) {
 						usuarios[i].aceptarOfertado(oferta);
-						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n"
-								+ " (dinero restante: " + usuarios[i].getDineroDisponible() + " monedas,"
-								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)");
+						System.out.printf("%10s",
+								"Gracias por su compra " + usuarios[i].getNombre() + "\n" + " (dinero restante: "
+										+ usuarios[i].getDineroDisponible() + " monedas," + " tiempo restante: "
+										+ usuarios[i].getTiempoDisponible() + " minutos)" + "\n" + "\n");
+
 					}
 
 				}
@@ -69,6 +72,8 @@ public class App {
 			}
 
 		}
+		for (int i = 0; i < 50; ++i) System.out.println();
+		System.out.println("Muchas gracias por visitar nuestro parque, vuelva prontos");
 
 		consolita.close();
 	}
