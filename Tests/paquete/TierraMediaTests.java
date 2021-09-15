@@ -143,7 +143,7 @@ public class TierraMediaTests {
 	}
 */
 //-------------------------------------------PROMOCION ABSOLUTA TEST-------------------------------------------------------------------//
-*/
+
 	@Test
 	public void quePuedeCrearPromoAbsolutaAfirmativo() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
@@ -268,7 +268,7 @@ public class TierraMediaTests {
 		String expected = usuarioPruebas.getNombre() + ", Tipo de atraccion favorita: " + usuarioPruebas.getTipoAtraccion()
 						  + "\nPromociones compradas:"	+ usuarioPruebas.promocionesAceptadas + "\nAtracciones sin promo compradas: "
 						  + usuarioPruebas.atraccionesCompradas + "\n[Total a gastar:" + usuarioPruebas.getCostoFinal()
-						  + ", Tiempo total estimado: " + usuarioPruebas.getTiempoFinal() + "]";
+						  + ", Tiempo total estimado: " + usuarioPruebas.getTiempoFinal() + "]\n\n";
 
 		assertEquals(expected, usuarioPruebas.toString());
 	}
