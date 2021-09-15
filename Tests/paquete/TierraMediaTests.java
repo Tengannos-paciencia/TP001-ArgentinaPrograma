@@ -15,7 +15,7 @@ public class TierraMediaTests {
 		
 		assertEquals(expected, atraccion1.toString());
 	}
-	
+/*	
 	@Test
 	public void quePuedeCrearPromocion() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
@@ -31,7 +31,7 @@ public class TierraMediaTests {
 		String expected = "[nombre: prueba1, atracciones:" + atracciones + "precio: " + promo.getCosto() + "]";
 		assertEquals(expected, promo.toString());
 	}
-	
+	*/
 	@Test
 	public void quePuedeCrearAtraccionYCalcularCosto() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;

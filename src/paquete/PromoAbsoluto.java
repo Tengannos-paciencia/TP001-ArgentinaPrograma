@@ -22,7 +22,7 @@ public class PromoAbsoluto extends Promocion {
 	@Override
 	public String toString() {
 		return "------PROMO GUISO ESPELUZNANTE------ incluye: " + "\n" + Arrays.toString(atracciones) + "\n"
-				+ "Costo final: " + this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos" + "\n";
+				+ "Costo con descuento: " + this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos" + "\n";
 	}
 
 }

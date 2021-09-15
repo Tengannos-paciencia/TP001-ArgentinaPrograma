@@ -62,10 +62,6 @@ public class Atraccion extends Ofertable {
 	public void setCostoTotal() {
 	}
 
-	public void setCupo(int cupo) {
-		this.cupo = cupo;
-	}
-
 	@Override
 	public String toString() {
 
