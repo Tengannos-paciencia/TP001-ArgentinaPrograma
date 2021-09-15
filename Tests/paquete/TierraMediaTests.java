@@ -76,6 +76,7 @@ public class TierraMediaTests {
 	}
 
 //------------------------------------------MANEJO DE ARCHIVOS TESTS-----------------------------------------------------------//
+	/*
 	@Test
 	public void quePuedeCrearUsuariosDesdeArchivoAfirmativo() throws Exception {
 		// ManejadorDeArchivos archivoUsuarios = new ManejadorDeArchivos();
@@ -126,7 +127,7 @@ public class TierraMediaTests {
 
 		assertNotNull(promociones);
 	}
-
+/*
 	@Test
 	public void quePuedeCrearPromosDesdeArchivoNegativo() throws Exception {
 		Taquilla nuevaTaquilla = new Taquilla();
@@ -141,6 +142,7 @@ public class TierraMediaTests {
 
 		assertNull(promociones);
 	}
+*/
 //-------------------------------------------PROMOCION ABSOLUTA TEST-------------------------------------------------------------------//
 
 	@Test
@@ -311,38 +313,41 @@ public class TierraMediaTests {
 		
 		assertFalse(usuarioPruebas.puedeComprar(atraccion1));
 	}
-/*
-	@Test
-	public void quePuedeCrearUsuarioYVerificarAtraccionYaComprada() {
-		TipoAtraccion tipo = TipoAtraccion.TERROR;
-
-		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		int expected = 150;
-
-		assertEquals(expected, atraccion1.getTiempo());
-	}
-
-	@Test
-	public void quePuedeCrearUsuarioYVerificarDineroYTiempoSuficientes() {
-		TipoAtraccion tipo = TipoAtraccion.TERROR;
-
-		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		int expected = 12;
-
-		assertEquals(expected, atraccion1.getCupo());
-	}
-
-	@Test
-	public void quePuedeCrearUsuarioY() {
-		TipoAtraccion tipo = TipoAtraccion.TERROR;
-
-		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		TipoAtraccion expected = atraccion1.getTipo();
-
-		assertEquals(expected, atraccion1.getTipo());
-	}
-*/	
 	
+	@Test
+	public void usuarioVerificaAtraccionYaComprada() {
+		TipoAtraccion tipo = TipoAtraccion.TERROR;
+
+		Usuario usuarioPruebas = new Usuario("juan carlos", 1500, 1500, tipo);
+				
+		Atraccion atraccion = new Atraccion("atraccionSimple", 15, 150, 12, tipo);
+		
+		usuarioPruebas.aceptarOfertado(atraccion);
+		
+		assertTrue(usuarioPruebas.atraccionYaComprada(atraccion));
+	}
+	
+	@Test
+	public void usuarioVerificaPromoYaComprada() {
+		TipoAtraccion tipo = TipoAtraccion.TERROR;
+
+		Usuario usuarioPruebas = new Usuario("juan carlos", 1500, 1500, tipo);
+				
+		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
+		Atraccion atraccion2 = new Atraccion("segundaAtraccion", 25, 150, 12, tipo);
+		Atraccion atraccion3 = new Atraccion("terceraAtraccion", 7, 150, 12, tipo);
+		Atraccion atraccion4 = new Atraccion("cuartaAtraccion", 3, 150, 12, tipo);
+		Atraccion[] atracciones = new Atraccion[] { atraccion1, atraccion2, atraccion3, atraccion4 };
+
+		PromoAxB promo2x1 = new PromoAxB("pruebaPromoAxB", tipo, atracciones, 3);
+		
+		usuarioPruebas.aceptarOfertado(promo2x1);
+		
+		assertTrue(usuarioPruebas.atraccionYaComprada(promo2x1));
+	}
+	
+	
+
 	
 	
 	
