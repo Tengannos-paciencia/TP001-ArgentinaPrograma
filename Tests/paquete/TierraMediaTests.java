@@ -34,27 +34,6 @@ public class TierraMediaTests {
 
 		assertEquals(expected, atraccion1.toString());
 	}
-<<<<<<< HEAD
-/*	
-	@Test
-	public void quePuedeCrearPromocion() {
-		TipoAtraccion tipo = TipoAtraccion.TERROR;
-		
-		Atraccion atraccion1 = new Atraccion ("primeraAtraccion", 15, 150, 12, tipo);
-		Atraccion atraccion2 = new Atraccion ("segundaAtraccion", 15, 150, 12, tipo);
-		Atraccion atraccion3 = new Atraccion ("terceraAtraccion", 15, 150, 12, tipo);
-		Atraccion atraccion4 = new Atraccion ("cuartaAtraccion", 15, 150, 12, tipo);
-		Atraccion[] atracciones = new Atraccion[] {atraccion1, atraccion2, atraccion3, atraccion4};
-		
-		Promocion promo = new Promocion("prueba1", atracciones, tipo);
-		
-		String expected = "[nombre: prueba1, atracciones:" + atracciones + "precio: " + promo.getCosto() + "]";
-		assertEquals(expected, promo.toString());
-	}
-	*/
-=======
-
->>>>>>> 1bc379bfbb26860348c27bb398da63fdb3c204c1
 	@Test
 	public void quePuedeCrearAtraccionYCalcularCosto() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
