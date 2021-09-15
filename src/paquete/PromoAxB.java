@@ -29,7 +29,12 @@ public class PromoAxB extends Promocion {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "------PROMO 2x1!------ incluye: " + "\n" + Arrays.toString(atracciones) + "\n" + "Costo con descuento: "
 				+ this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos" + "\n";
+=======
+		return "------PROMO 2x1!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto final: "
+				+ this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos\n";
+>>>>>>> 1bc379bfbb26860348c27bb398da63fdb3c204c1
 	}
 }

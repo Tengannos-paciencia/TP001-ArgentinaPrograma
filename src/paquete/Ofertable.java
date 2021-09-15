@@ -1,6 +1,12 @@
 package paquete;
 
 import java.util.List;
+<<<<<<< HEAD
+=======
+
+@SuppressWarnings("unused")
+
+>>>>>>> 1bc379bfbb26860348c27bb398da63fdb3c204c1
 public abstract class Ofertable {
 	protected Atraccion[] atracciones;
 	protected int costoTotal;
