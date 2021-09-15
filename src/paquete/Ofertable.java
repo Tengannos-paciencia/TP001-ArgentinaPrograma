@@ -11,15 +11,9 @@ public abstract class Ofertable {
 	public Ofertable() {
 	}
 
-	public abstract boolean cupoDisponible();
+	public abstract void ocuparAtraccion();
 
-	public String mostrarAtracciones() {
-		String atraccionesMostradas = "";
-		for (Atraccion atraccion : atracciones) {
-			atraccionesMostradas += atraccion.getNombre() + ", ";
-		}
-		return atraccionesMostradas;
-	}
+	public abstract boolean cupoDisponible();
 
 	public abstract int getCostoTotal();
 

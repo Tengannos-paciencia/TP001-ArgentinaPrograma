@@ -30,7 +30,7 @@ public class TierraMediaTests {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		String expected = "primeraAtraccion, costo: 15 monedas, tiempo: 150 minutos, cupo: 12, tipo: TERROR\n";
+		String expected = "[primeraAtraccion, costo: 15 monedas, tiempo: 150 minutos, cupo: 12, tipo: TERROR]\n";
 
 		assertEquals(expected, atraccion1.toString());
 	}
@@ -74,7 +74,7 @@ public class TierraMediaTests {
 
 		assertEquals(expected, atraccion1.getTipo());
 	}
-
+/*
 //------------------------------------------MANEJO DE ARCHIVOS TESTS-----------------------------------------------------------//
 	/*
 	@Test
@@ -158,7 +158,7 @@ public class TierraMediaTests {
 		PromoAbsoluto promo1 = new PromoAbsoluto("pruebaDePromoAbsoluta", tipo, atracciones, 45);
 
 		String expected = "------PROMO GUISO ESPELUZNANTE------ incluye:\n" + Arrays.toString(atracciones)
-				+ "\nCosto final: " + promo1.getCostoTotal() + ", tiempo total: " + promo1.getTiempoTotal()
+				+ "\nCosto con descuento: " + promo1.getCostoTotal() + ", tiempo total: " + promo1.getTiempoTotal()
 				+ " minutos\n";
 
 		assertEquals(expected, promo1.toString());
@@ -197,7 +197,7 @@ public class TierraMediaTests {
 
 		PromoPorcentual promoPorcentual = new PromoPorcentual("pruebaPromoPorcentual", tipo, atracciones, 25);
 
-		String expected = "------PROMO 25% OFF!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto final: "
+		String expected = "------PROMO 25% OFF!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto con descuento: "
 				+ promoPorcentual.getCostoTotal() + ", tiempo total: " + promoPorcentual.getTiempoTotal()
 				+ " minutos\n";
 
@@ -236,7 +236,7 @@ public class TierraMediaTests {
 
 		PromoAxB promo2x1 = new PromoAxB("pruebaPromoAxB", tipo, atracciones, 3);
 
-		String expected = "------PROMO 2x1!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto final: "
+		String expected = "------PROMO 2x1!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto con descuento: "
 				+ promo2x1.getCostoTotal() + ", tiempo total: " + promo2x1.getTiempoTotal() + " minutos\n";
 
 		assertEquals(expected, promo2x1.toString());
@@ -268,8 +268,8 @@ public class TierraMediaTests {
 		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 480, tipo);
 		String expected = usuarioPruebas.getNombre() + ", Tipo de atraccion favorita: " + usuarioPruebas.getTipoAtraccion()
 						  + "\nPromociones compradas:"	+ usuarioPruebas.promocionesAceptadas + "\nAtracciones sin promo compradas: "
-						  + usuarioPruebas.atraccionesAceptadas + "\n[Total a gastar:" + usuarioPruebas.getCostoFinal()
-						  + ", Tiempo total estimado: " + usuarioPruebas.getTiempoFinal() + "]";
+						  + usuarioPruebas.atraccionesCompradas + "\n[Total a gastar:" + usuarioPruebas.getCostoFinal()
+						  + ", Tiempo total estimado: " + usuarioPruebas.getTiempoFinal() + "]\n\n";
 
 		assertEquals(expected, usuarioPruebas.toString());
 	}

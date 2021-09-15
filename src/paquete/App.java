@@ -49,6 +49,7 @@ public class App {
 					respuesta = "";
 					System.out.println(oferta);
 					while (!respuesta.equalsIgnoreCase("Y") && !respuesta.equalsIgnoreCase("N")) {
+						System.out.println();
 						System.out.println("Desea aceptar esta oferta? (Y/N)");
 						respuesta = consolita.nextLine();
 
@@ -56,10 +57,10 @@ public class App {
 					if (respuesta.equalsIgnoreCase("Y")) {
 						usuarios[i].aceptarOfertado(oferta);
 						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n"
-								+ " (dinero restante: " + usuarios[i].getDineroDisponible() + " monedas,"
-								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)" + "\n" + "\n");
-
-					}
+								+ "(dinero restante: " + usuarios[i].getDineroDisponible() + " monedas,"
+								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)" + "\n\n");
+						System.out.println("-----------------------------------");
+											}
 
 				}
 
@@ -76,7 +77,7 @@ public class App {
 		}
 		for (int i = 0; i < 50; ++i)
 			System.out.println();
-		System.out.println("Muchas gracias por visitar nuestro parque, vuelva prontos");
+		System.out.println("--------Muchas gracias por visitar nuestro parque, vuelva prontos--------");
 
 		consolita.close();
 	}
