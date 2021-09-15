@@ -36,9 +36,6 @@ public abstract class Promocion extends Ofertable {
 		this.setCosto();
 	}
 
-	// posiblemente no sea necesario que las promociones sepan qué tipo de
-	// promociones son
-
 	public TipoAtraccion getTipo() {
 		return tipoDePromocion;
 	}
@@ -79,7 +76,11 @@ public abstract class Promocion extends Ofertable {
 			this.costo += atraccion.getCosto();
 		}
 	}
-
+	public void ocuparAtraccion() {
+		for (Atraccion atraccion : atracciones) {
+			atraccion.cupo--;
+		}
+	}
 	public List<Atraccion> getListaAtracciones() {
 		ArrayList<Atraccion> lista = new ArrayList<Atraccion>();
 

@@ -41,6 +41,9 @@ public class Atraccion extends Ofertable {
 	public int getCupo() {
 		return this.cupo;
 	}
+	public void ocuparAtraccion() {
+		this.cupo--;
+	}
 
 	public boolean cupoDisponible() {
 		if (this.getCupo() > 0) {
