@@ -68,8 +68,9 @@ public class Atraccion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return "->" + nombre + ", costo: " + costo + " monedas" + ", tiempo: " + tiempoEnMinutos + " minutos"
-				+ ", cupo: " + cupo + ", tipo: " + tipoDeAtraccion + "\n";
+
+		return nombre + ", costo: " + costo + " monedas, tiempo: " + tiempoEnMinutos + " minutos, cupo: " + cupo
+				+ ", tipo: " + tipoDeAtraccion + "\n";
 	}
 
 	@Override
