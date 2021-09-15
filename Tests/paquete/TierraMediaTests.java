@@ -30,7 +30,7 @@ public class TierraMediaTests {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		String expected = "primeraAtraccion, costo: 15 monedas, tiempo: 150 minutos, cupo: 12, tipo: TERROR\n";
+		String expected = "[primeraAtraccion, costo: 15 monedas, tiempo: 150 minutos, cupo: 12, tipo: TERROR]\n";
 
 		assertEquals(expected, atraccion1.toString());
 	}
