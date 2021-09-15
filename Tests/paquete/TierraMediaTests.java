@@ -34,6 +34,7 @@ public class TierraMediaTests {
 
 		assertEquals(expected, atraccion1.toString());
 	}
+
 	@Test
 	public void quePuedeCrearAtraccionYCalcularCosto() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
@@ -259,7 +260,7 @@ public class TierraMediaTests {
 		assertNotEquals(expected, promo2x1.toString());
 	}
 
-//------------------------------------------USUARIO------------------------------------------------------------------------------------//
+//------------------------------------------USUARIO--------------------------------------------------------------------------------------//
 	@Test
 	public void quePuedeCrearUsuario() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
@@ -345,7 +346,7 @@ public class TierraMediaTests {
 		assertTrue(usuarioPruebas.atraccionYaComprada(promo2x1));
 	}
 	
-	
+//------------------------------------------ITINERARIO-----------------------------------------------------------------------------------//	
 
 	
 	
