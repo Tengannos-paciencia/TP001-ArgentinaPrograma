@@ -196,7 +196,7 @@ public class TierraMediaTests {
 
 		PromoPorcentual promoPorcentual = new PromoPorcentual("pruebaPromoPorcentual", tipo, atracciones, 25);
 
-		String expected = "------PROMO 25% OFF!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto final: "
+		String expected = "------PROMO 25% OFF!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto con descuento: "
 				+ promoPorcentual.getCostoTotal() + ", tiempo total: " + promoPorcentual.getTiempoTotal()
 				+ " minutos\n";
 
@@ -235,7 +235,7 @@ public class TierraMediaTests {
 
 		PromoAxB promo2x1 = new PromoAxB("pruebaPromoAxB", tipo, atracciones, 3);
 
-		String expected = "------PROMO 2x1!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto final: "
+		String expected = "------PROMO 2x1!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto con descuento: "
 				+ promo2x1.getCostoTotal() + ", tiempo total: " + promo2x1.getTiempoTotal() + " minutos\n";
 
 		assertEquals(expected, promo2x1.toString());
