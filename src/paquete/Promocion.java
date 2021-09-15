@@ -3,7 +3,7 @@ package paquete;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Promocion extends Ofertable {
+public abstract class Promocion extends Ofertable {
 	protected Atraccion[] atracciones;
 	protected String nombre;
 	protected TipoAtraccion tipoDePromocion;

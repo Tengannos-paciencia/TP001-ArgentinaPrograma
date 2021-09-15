@@ -51,7 +51,7 @@ public class Usuario extends Taquilla {
 		if (o == null) {
 			return false;
 		}
-		return (dineroDisponible > o.getCostoTotal() && tiempoDisponible > o.getTiempoTotal());
+		return (dineroDisponible >= o.getCostoTotal() && tiempoDisponible >= o.getTiempoTotal());
 	}
 
 	public void aceptarOfertado(Ofertable o) {
