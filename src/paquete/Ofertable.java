@@ -1,7 +1,5 @@
 package paquete;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class Ofertable {
@@ -48,7 +46,6 @@ public abstract class Ofertable {
 	}
 
 	public abstract List<Atraccion> getListaAtracciones();
-
 
 	protected abstract int getCosto();
 

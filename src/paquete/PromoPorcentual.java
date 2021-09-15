@@ -17,7 +17,7 @@ public class PromoPorcentual extends Promocion {
 
 	@Override
 	public void setCostoTotal() {
-		this.costoTotal = (int) (costoSinDescuento()*(porcentajeDescuento/100));
+		this.costoTotal = (int) (costoSinDescuento() * (porcentajeDescuento / 100));
 	}
 
 	private int costoSinDescuento() {
@@ -29,8 +29,8 @@ public class PromoPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		
-		return "------PROMO 25% OFF!------ incluye: " + "\n" + Arrays.toString(atracciones) + "\n" + "Costo final: " + this.costoTotal
-				+ ", tiempo total: " + this.tiempoTotal + " minutos" +"\n";
+
+		return "------PROMO 25% OFF!------ incluye: " + "\n" + Arrays.toString(atracciones) + "\n" + "Costo final: "
+				+ this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos" + "\n";
 	}
 }
