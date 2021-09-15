@@ -41,12 +41,14 @@ public class Atraccion extends Ofertable {
 	public int getCupo() {
 		return this.cupo;
 	}
+
 	public boolean cupoDisponible() {
-		if(this.getCupo()> 0) {
+		if (this.getCupo() > 0) {
 			return true;
 		}
 		return false;
 	}
+
 	@Override
 	public void setTiempoTotal() {
 
@@ -66,8 +68,8 @@ public class Atraccion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return  "->" + nombre + ", costo: " + costo + " monedas" + ", tiempo: " + tiempoEnMinutos + " minutos"
-				+ ", cupo: " + cupo + ", tipo: " + tipoDeAtraccion  + "\n";
+		return nombre + ", costo: " + costo + " monedas, tiempo: " + tiempoEnMinutos + " minutos, cupo: " + cupo
+				+ ", tipo: " + tipoDeAtraccion + "\n";
 	}
 
 	@Override

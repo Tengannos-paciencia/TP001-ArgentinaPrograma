@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class ManejadorDeArchivos {
-	public static Usuario[] obtenerUsuarioDesdeArchivo() {
+	public static Usuario[] obtenerUsuarioDesdeArchivo(String ruta) {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -14,7 +15,7 @@ public class ManejadorDeArchivos {
 		Usuario[] usuarios = null;
 
 		try {
-			archivo = new File("archivos_entrada/usuarios.txt");
+			archivo = new File(ruta);
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 
@@ -52,7 +53,7 @@ public class ManejadorDeArchivos {
 		return usuarios;
 	}
 
-	public static Atraccion[] obtenerAtraccionesDesdeArchivo() {
+	public static Atraccion[] obtenerAtraccionesDesdeArchivo(String ruta) {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -60,7 +61,7 @@ public class ManejadorDeArchivos {
 		Atraccion[] atracciones = null;
 
 		try {
-			archivo = new File("archivos_entrada/atracciones.txt");
+			archivo = new File(ruta);
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 
@@ -78,8 +79,6 @@ public class ManejadorDeArchivos {
 				TipoAtraccion tipo = TipoAtraccion.valueOf(datosAtraccion[4]);
 
 				atracciones[indice++] = new Atraccion(nombre, costo, tiempo, cupo, tipo);
-				// System.out.println(atracciones[indice]);
-				// indice++;
 				linea = br.readLine();
 
 			}
@@ -99,7 +98,7 @@ public class ManejadorDeArchivos {
 		return atracciones;
 	}
 
-	public static Promocion[] obtenerPromosDesdeArchivo(Taquilla taquilla) {
+	public static Promocion[] obtenerPromosDesdeArchivo(Taquilla taquilla, String ruta) {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -107,7 +106,7 @@ public class ManejadorDeArchivos {
 		Promocion[] promociones = null;
 
 		try {
-			archivo = new File("archivos_entrada/promociones.txt");
+			archivo = new File(ruta);
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 
@@ -167,7 +166,7 @@ public class ManejadorDeArchivos {
 	}
 
 	public static void crearItinerario(Usuario u) throws IOException {
-		PrintWriter salida = new PrintWriter(new File("archivos_salida\\itinerario" + u.getNombre() + ".txt"));
+		PrintWriter salida = new PrintWriter(new File("archivos_salida\\itinerario_" + u.getNombre() + ".txt"));
 		try {
 			salida.println(u.toString());
 

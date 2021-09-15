@@ -112,7 +112,7 @@ public class Promocion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return "[nombre: " + nombre + ", tipo de promo: " + tipoPromo + ", atracciones:" + atracciones + "precio: "
+		return "[nombre: " + nombre + ", atracciones:" + atracciones + "precio: "
 				+ costo + "]";
 	}
 
