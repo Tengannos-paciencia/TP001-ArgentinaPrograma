@@ -108,8 +108,8 @@ public class Usuario extends Taquilla {
 
 	@Override
 	public String toString() {
-		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\nPromociones compradas:"
-				+ promocionesAceptadas + "\nAtracciones sin promo compradas: " + atraccionesAceptadas + "\nCosto total: "
-				+ costoFinal + ", Tiempo total estimado: " + tiempoFinal + "\n";
+		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\n" + ", Promociones compradas:"
+				+ promocionesAceptadas + "\n" + ", Atracciones sin promo compradas: " + atraccionesAceptadas + "\n"
+				+ " [Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]";
 	}
 }
