@@ -28,9 +28,9 @@ public class ComparadorDeOfertables implements Comparator<Ofertable> {
 		}
 
 		if (o1.esPromocion() && o2.esAtraccion()) {
-			return 1;
-		} else if (o1.esAtraccion() && o2.esPromocion()) {
 			return -1;
+		} else if (o1.esAtraccion() && o2.esPromocion()) {
+			return 1;
 		}
 
 		if (diferenciaCosto != 0) {
