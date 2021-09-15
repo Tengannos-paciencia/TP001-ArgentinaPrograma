@@ -7,6 +7,8 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 public class ManejadorDeArchivos {
+	
+	
 	public static Usuario[] obtenerUsuarioDesdeArchivo(String ruta) {
 		File archivo = null;
 		FileReader fr = null;
@@ -165,8 +167,10 @@ public class ManejadorDeArchivos {
 		return promociones;
 	}
 
-	public static void crearItinerario(Usuario u) throws IOException {
-		PrintWriter salida = new PrintWriter(new File("archivos_salida\\itinerario_" + u.getNombre() + ".txt"));
+	public static void crearItinerario(Usuario u, String ruta) throws IOException {
+		String rutaSalidaConGuionBajoYDobleBarra = ruta;
+		
+		PrintWriter salida = new PrintWriter(new File(rutaSalidaConGuionBajoYDobleBarra + u.getNombre() + ".txt"));
 		try {
 			salida.println(u.toString());
 

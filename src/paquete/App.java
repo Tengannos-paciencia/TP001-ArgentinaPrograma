@@ -59,7 +59,7 @@ public class App {
 						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n"
 								+ "(dinero restante: " + usuarios[i].getDineroDisponible() + " monedas,"
 								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)" + "\n\n");
-						System.out.println("-----------------------------------");
+						System.out.println("-----------------------------------------------------------------------------------------------------");
 											}
 
 				}
@@ -67,7 +67,7 @@ public class App {
 			}
 			try {
 
-				ManejadorDeArchivos.crearItinerario(usuarios[i]);
+				ManejadorDeArchivos.crearItinerario(usuarios[i], "archivos_salida\\itinerario_");
 			}
 
 			catch (IOException e) {
