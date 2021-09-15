@@ -17,10 +17,11 @@ public class PromoPorcentual extends Promocion {
 
 	@Override
 	public void setCostoTotal() {
-		this.costoTotal = (int) (costoSinDescuento() * (porcentajeDescuento / 100));
+		this.costoTotal = (int) (this.costoSinDescuento() - (this.costoSinDescuento() * (this.porcentajeDescuento/100)));
 	}
-
+	
 	private int costoSinDescuento() {
+		costoSinDescuento = 0;
 		for (Atraccion atraccion : atracciones) {
 			costoSinDescuento += atraccion.getCosto();
 		}
