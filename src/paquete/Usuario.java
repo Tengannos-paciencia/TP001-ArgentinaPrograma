@@ -14,6 +14,7 @@ public class Usuario extends Taquilla {
 	ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
 	ArrayList<Atraccion> atraccionesAceptadas = new ArrayList<Atraccion>();
 	Atraccion[] arrayAtraccionesAceptadas;
+
 	private int costoFinal;
 	private int tiempoFinal;
 	private int cantidadAtracciones = 0;
@@ -23,6 +24,14 @@ public class Usuario extends Taquilla {
 		this.dineroDisponible = presupuesto;
 		this.tiempoDisponible = tiempoEnMinutos;
 		this.tipoAtraccion = tipo;
+	}
+	
+	public int getCostoFinal() {
+		return costoFinal;
+	}
+
+	public int getTiempoFinal() {
+		return tiempoFinal;
 	}
 
 	public boolean puedeComprar(Ofertable o) {
@@ -108,8 +117,8 @@ public class Usuario extends Taquilla {
 
 	@Override
 	public String toString() {
-		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\n" + ", Promociones compradas:"
-				+ promocionesAceptadas + "\n" + ", Atracciones sin promo compradas: " + atraccionesAceptadas + "\n"
-				+ " [Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]";
+		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\nPromociones compradas:"
+				+ promocionesAceptadas + "\nAtracciones sin promo compradas: " + atraccionesAceptadas 
+				+ "\n[Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]";
 	}
 }

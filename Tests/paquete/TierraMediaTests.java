@@ -265,22 +265,53 @@ public class TierraMediaTests {
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 480, tipo);
 		String expected = usuarioPruebas.getNombre() + ", Tipo de atraccion favorita: " + usuarioPruebas.getTipoAtraccion()
-						  + "\nPromociones compradas:" + usuarioPruebas.promocionesAceptadas + "\nAtracciones sin promo compradas: "
-						  + usuarioPruebas.atraccionesAceptadas + "\nCosto total: " + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "\n";
+						  + "\nPromociones compradas:"	+ usuarioPruebas.promocionesAceptadas + "\nAtracciones sin promo compradas: "
+						  + usuarioPruebas.atraccionesAceptadas + "\n[Total a gastar:" + usuarioPruebas.getCostoFinal()
+						  + ", Tiempo total estimado: " + usuarioPruebas.getTiempoFinal() + "]";
 
-		assertEquals(expected, atraccion1.toString());
+		assertEquals(expected, usuarioPruebas.toString());
 	}
 
 	@Test
 	public void quePuedeCrearUsuarioYPuedeComprar() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
+		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 480, tipo);
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		int expected = 15;
-
-		assertEquals(expected, atraccion1.getCosto());
+		
+		assertTrue(usuarioPruebas.puedeComprar(atraccion1));
 	}
+	
+	@Test
+	public void usuarioNoPuedeComprarPorDinero() {
+		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
+		Usuario usuarioPruebas = new Usuario("juan carlos", 5, 480, tipo);
+		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
+		
+		assertFalse(usuarioPruebas.puedeComprar(atraccion1));
+	}
+	
+	@Test
+	public void usuarioNoPuedeComprarPorTiempo() {
+		TipoAtraccion tipo = TipoAtraccion.TERROR;
+
+		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 25, tipo);
+		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
+		
+		assertFalse(usuarioPruebas.puedeComprar(atraccion1));
+	}
+	
+	@Test
+	public void usuarioNoPuedeComprarPorCupo() {
+		TipoAtraccion tipo = TipoAtraccion.TERROR;
+
+		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 25, tipo);
+		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 0, tipo);
+		
+		assertFalse(usuarioPruebas.puedeComprar(atraccion1));
+	}
+/*
 	@Test
 	public void quePuedeCrearUsuarioYVerificarAtraccionYaComprada() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
@@ -310,7 +341,7 @@ public class TierraMediaTests {
 
 		assertEquals(expected, atraccion1.getTipo());
 	}
-	
+*/	
 	
 	
 	
