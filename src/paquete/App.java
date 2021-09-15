@@ -33,7 +33,7 @@ public class App {
 				+ nuevaTaquilla.getPromociones().length];
 
 		System.arraycopy(promociones, 0, ofertas, 0, promociones.length);
-		System.arraycopy(atracciones, 0, ofertas, atracciones.length, promociones.length);
+		System.arraycopy(atracciones, 0, ofertas, promociones.length, atracciones.length);
 
 		for (int i = 0; i < usuarios.length; i++) {
 			TipoAtraccion atraccionFavorita = usuarios[i].getTipoAtraccion();
@@ -55,8 +55,7 @@ public class App {
 					}
 					if (respuesta.equalsIgnoreCase("Y")) {
 						usuarios[i].aceptarOfertado(oferta);
-						System.out.printf("%10s",
-								"Gracias por su compra " + usuarios[i].getNombre() + "\n" + " (dinero restante: "
+						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n" + " (dinero restante: "
 										+ usuarios[i].getDineroDisponible() + " monedas," + " tiempo restante: "
 										+ usuarios[i].getTiempoDisponible() + " minutos)" + "\n" + "\n");
 
