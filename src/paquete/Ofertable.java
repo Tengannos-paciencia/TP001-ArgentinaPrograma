@@ -1,6 +1,7 @@
 package paquete;
 
 import java.util.List;
+
 @SuppressWarnings("unused")
 
 public abstract class Ofertable {

@@ -112,8 +112,7 @@ public abstract class Promocion extends Ofertable {
 
 	@Override
 	public String toString() {
-		return "[nombre: " + nombre + ", atracciones:" + atracciones + "precio: "
-				+ costo + "]";
+		return "[nombre: " + nombre + ", atracciones:" + atracciones + "precio: " + costo + "]";
 	}
 
 	@Override

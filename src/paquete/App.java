@@ -11,17 +11,20 @@ public class App {
 
 		Scanner consolita = new Scanner(System.in);
 		String respuesta = "";
-		nuevaTaquilla.agregarTodosLosUsuarios(ManejadorDeArchivos.obtenerUsuarioDesdeArchivo("archivos_entrada/usuarios.txt"));
+		nuevaTaquilla.agregarTodosLosUsuarios(
+				ManejadorDeArchivos.obtenerUsuarioDesdeArchivo("archivos_entrada/usuarios.txt"));
 
 		Usuario[] usuarios = nuevaTaquilla.getUsuarios();
 		// System.out.println(Arrays.toString(usuarios));
 
-		nuevaTaquilla.agregarTodasLasAtracciones(ManejadorDeArchivos.obtenerAtraccionesDesdeArchivo("archivos_entrada/atracciones.txt"));
+		nuevaTaquilla.agregarTodasLasAtracciones(
+				ManejadorDeArchivos.obtenerAtraccionesDesdeArchivo("archivos_entrada/atracciones.txt"));
 
 		Atraccion[] atracciones = nuevaTaquilla.getAtracciones();
 		// System.out.println(Arrays.toString(atracciones));
 
-		nuevaTaquilla.agregarTodasLasPromociones(ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla, "archivos_entrada/promociones.txt"));
+		nuevaTaquilla.agregarTodasLasPromociones(
+				ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla, "archivos_entrada/promociones.txt"));
 
 		Promocion[] promociones = nuevaTaquilla.getPromociones();
 		// System.out.println(Arrays.toString(promociones));
