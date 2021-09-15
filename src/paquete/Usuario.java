@@ -120,5 +120,6 @@ public class Usuario extends Taquilla {
 		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\nPromociones compradas:"
 				+ promocionesAceptadas + "\nAtracciones sin promo compradas: " + atraccionesAceptadas 
 				+ "\n[Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]";
+
 	}
 }

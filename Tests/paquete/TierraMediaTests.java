@@ -34,7 +34,6 @@ public class TierraMediaTests {
 
 		assertEquals(expected, atraccion1.toString());
 	}
-
 	@Test
 	public void quePuedeCrearAtraccionYCalcularCosto() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;

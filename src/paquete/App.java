@@ -55,9 +55,9 @@ public class App {
 					}
 					if (respuesta.equalsIgnoreCase("Y")) {
 						usuarios[i].aceptarOfertado(oferta);
-						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n" + " (dinero restante: "
-										+ usuarios[i].getDineroDisponible() + " monedas," + " tiempo restante: "
-										+ usuarios[i].getTiempoDisponible() + " minutos)" + "\n" + "\n");
+						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n"
+								+ " (dinero restante: " + usuarios[i].getDineroDisponible() + " monedas,"
+								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)" + "\n" + "\n");
 
 					}
 
