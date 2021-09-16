@@ -76,11 +76,13 @@ public abstract class Promocion extends Ofertable {
 			this.costo += atraccion.getCosto();
 		}
 	}
+
 	public void ocuparAtraccion() {
 		for (Atraccion atraccion : atracciones) {
 			atraccion.cupo--;
 		}
 	}
+
 	public List<Atraccion> getListaAtracciones() {
 		ArrayList<Atraccion> lista = new ArrayList<Atraccion>();
 

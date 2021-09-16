@@ -114,7 +114,7 @@ public class Usuario extends Taquilla {
 	public String toString() {
 		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\nPromociones compradas:"
 				+ promocionesAceptadas + "\nAtracciones sin promo compradas: " + atraccionesCompradasSinPromo
-				+ "\n[Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]" +"\n\n";
+				+ "\n[Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]" + "\n\n";
 
 	}
 }
