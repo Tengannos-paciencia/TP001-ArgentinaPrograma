@@ -1,0 +1,13 @@
+juancito, Tipo de atraccion favorita: TERROR
+Promociones compradas:[------PROMO 2x1!------ incluye:
+[[primeraAtraccion, costo: 15 monedas, tiempo: 150 minutos, cupo: 11, tipo: TERROR]
+, [segundaAtraccion, costo: 25 monedas, tiempo: 150 minutos, cupo: 11, tipo: TERROR]
+, [terceraAtraccion, costo: 7 monedas, tiempo: 150 minutos, cupo: 11, tipo: TERROR]
+, [cuartaAtraccion, costo: 3 monedas, tiempo: 150 minutos, cupo: 11, tipo: TERROR]
+]
+Costo con descuento: 35, tiempo total: 600 minutos
+]
+Atracciones sin promo compradas: []
+[Total a gastar:35, Tiempo total estimado: 600]
+
+
