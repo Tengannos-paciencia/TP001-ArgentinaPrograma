@@ -61,7 +61,7 @@ public class App {
 								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)" + "\n\n");
 						System.out.println("-----------------------------------");
 											}
-
+					System.out.println("-----------------------------------");
 				}
 
 			}

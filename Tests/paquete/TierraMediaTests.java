@@ -2,6 +2,8 @@ package paquete;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -74,75 +76,75 @@ public class TierraMediaTests {
 
 		assertEquals(expected, atraccion1.getTipo());
 	}
-/*
-//------------------------------------------MANEJO DE ARCHIVOS TESTS-----------------------------------------------------------//
 	/*
-	@Test
-	public void quePuedeCrearUsuariosDesdeArchivoAfirmativo() throws Exception {
-		// ManejadorDeArchivos archivoUsuarios = new ManejadorDeArchivos();
-		Usuario[] usuarios = ManejadorDeArchivos.obtenerUsuarioDesdeArchivo("archivos_entrada/usuarios.txt");
-
-		assertNotNull(usuarios);
-	}
-
-	@Test
-	public void quePuedeCrearUsuariosDesdeArchivoNegativo() throws Exception {
-		// ManejadorDeArchivos archivoUsuarios = new ManejadorDeArchivos();
-		Usuario[] usuarios = ManejadorDeArchivos.obtenerUsuarioDesdeArchivo("archivos_entrada/usuarioss.txt");
-
-		assertNull(usuarios);
-	}
-
-	@Test
-	public void quePuedeCrearAtraccionDesdeArchivoAfirmativo() throws Exception {
-		// ManejadorDeArchivos archivoAtracciones = new ManejadorDeArchivos();
-		Atraccion[] atracciones = ManejadorDeArchivos
-				.obtenerAtraccionesDesdeArchivo("archivos_entrada/atracciones.txt");
-
-		assertNotNull(atracciones);
-	}
-
-	@Test
-	public void quePuedeCrearAtraccionDesdeArchivoNegativo() throws Exception {
-		// ManejadorDeArchivos archivoAtracciones = new ManejadorDeArchivos();
-		Atraccion[] atracciones = ManejadorDeArchivos
-				.obtenerAtraccionesDesdeArchivo("archivos_entrada/atraccioness.txt");
-
-		assertNull(atracciones);
-	}
-
-	@Test
-	public void quePuedeCrearPromosDesdeArchivoAfirmativo() throws Exception {
-		Taquilla nuevaTaquilla = new Taquilla();
-		// ManejadorDeArchivos archivoPromos = new ManejadorDeArchivos();
-		nuevaTaquilla.agregarTodosLosUsuarios(
-				ManejadorDeArchivos.obtenerUsuarioDesdeArchivo("archivos_entrada/usuarios.txt"));
-		nuevaTaquilla.agregarTodasLasAtracciones(
-				ManejadorDeArchivos.obtenerAtraccionesDesdeArchivo("archivos_entrada/atracciones.txt"));
-		nuevaTaquilla.agregarTodasLasPromociones(
-				ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla, "archivos_entrada/promociones.txt"));
-
-		Promocion[] promociones = ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla,
-				"archivos_entrada/promociones.txt");
-
-		assertNotNull(promociones);
-	}
-/*
-	@Test
-	public void quePuedeCrearPromosDesdeArchivoNegativo() throws Exception {
-		Taquilla nuevaTaquilla = new Taquilla();
-		// ManejadorDeArchivos archivoPromos = new ManejadorDeArchivos();
-		// nuevaTaquilla.agregarTodosLosUsuarios(archivoPromos.obtenerUsuarioDesdeArchivo("archivos_entrada/usuarios.txt"));
-		// nuevaTaquilla.agregarTodasLasAtracciones(archivoPromos.obtenerAtraccionesDesdeArchivo("archivos_entrada/atracciones.txt"));
-		// nuevaTaquilla.agregarTodasLasPromociones(archivoPromos.obtenerPromosDesdeArchivo(nuevaTaquilla,
-		// "archivos_entrada/promociones.txt"));
-
-		Promocion[] promociones = ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla,
-				"archivos_entrada/promocioness.txt");
-
-		assertNull(promociones);
-	}
-*/
+	 * //------------------------------------------MANEJO DE ARCHIVOS
+	 * TESTS-----------------------------------------------------------// /*
+	 * 
+	 * @Test public void quePuedeCrearUsuariosDesdeArchivoAfirmativo() throws
+	 * Exception { // ManejadorDeArchivos archivoUsuarios = new
+	 * ManejadorDeArchivos(); Usuario[] usuarios =
+	 * ManejadorDeArchivos.obtenerUsuarioDesdeArchivo(
+	 * "archivos_entrada/usuarios.txt");
+	 * 
+	 * assertNotNull(usuarios); }
+	 * 
+	 * @Test public void quePuedeCrearUsuariosDesdeArchivoNegativo() throws
+	 * Exception { // ManejadorDeArchivos archivoUsuarios = new
+	 * ManejadorDeArchivos(); Usuario[] usuarios =
+	 * ManejadorDeArchivos.obtenerUsuarioDesdeArchivo(
+	 * "archivos_entrada/usuarioss.txt");
+	 * 
+	 * assertNull(usuarios); }
+	 * 
+	 * @Test public void quePuedeCrearAtraccionDesdeArchivoAfirmativo() throws
+	 * Exception { // ManejadorDeArchivos archivoAtracciones = new
+	 * ManejadorDeArchivos(); Atraccion[] atracciones = ManejadorDeArchivos
+	 * .obtenerAtraccionesDesdeArchivo("archivos_entrada/atracciones.txt");
+	 * 
+	 * assertNotNull(atracciones); }
+	 * 
+	 * @Test public void quePuedeCrearAtraccionDesdeArchivoNegativo() throws
+	 * Exception { // ManejadorDeArchivos archivoAtracciones = new
+	 * ManejadorDeArchivos(); Atraccion[] atracciones = ManejadorDeArchivos
+	 * .obtenerAtraccionesDesdeArchivo("archivos_entrada/atraccioness.txt");
+	 * 
+	 * assertNull(atracciones); }
+	 * 
+	 * @Test public void quePuedeCrearPromosDesdeArchivoAfirmativo() throws
+	 * Exception { Taquilla nuevaTaquilla = new Taquilla(); // ManejadorDeArchivos
+	 * archivoPromos = new ManejadorDeArchivos();
+	 * nuevaTaquilla.agregarTodosLosUsuarios(
+	 * ManejadorDeArchivos.obtenerUsuarioDesdeArchivo(
+	 * "archivos_entrada/usuarios.txt")); nuevaTaquilla.agregarTodasLasAtracciones(
+	 * ManejadorDeArchivos.obtenerAtraccionesDesdeArchivo(
+	 * "archivos_entrada/atracciones.txt"));
+	 * nuevaTaquilla.agregarTodasLasPromociones(
+	 * ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla,
+	 * "archivos_entrada/promociones.txt"));
+	 * 
+	 * Promocion[] promociones =
+	 * ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla,
+	 * "archivos_entrada/promociones.txt");
+	 * 
+	 * assertNotNull(promociones); } /*
+	 * 
+	 * @Test public void quePuedeCrearPromosDesdeArchivoNegativo() throws Exception
+	 * { Taquilla nuevaTaquilla = new Taquilla(); // ManejadorDeArchivos
+	 * archivoPromos = new ManejadorDeArchivos(); //
+	 * nuevaTaquilla.agregarTodosLosUsuarios(archivoPromos.
+	 * obtenerUsuarioDesdeArchivo("archivos_entrada/usuarios.txt")); //
+	 * nuevaTaquilla.agregarTodasLasAtracciones(archivoPromos.
+	 * obtenerAtraccionesDesdeArchivo("archivos_entrada/atracciones.txt")); //
+	 * nuevaTaquilla.agregarTodasLasPromociones(archivoPromos.
+	 * obtenerPromosDesdeArchivo(nuevaTaquilla, //
+	 * "archivos_entrada/promociones.txt"));
+	 * 
+	 * Promocion[] promociones =
+	 * ManejadorDeArchivos.obtenerPromosDesdeArchivo(nuevaTaquilla,
+	 * "archivos_entrada/promocioness.txt");
+	 * 
+	 * assertNull(promociones); }
+	 */
 //-------------------------------------------PROMOCION ABSOLUTA TEST-------------------------------------------------------------------//
 
 	@Test
@@ -197,9 +199,9 @@ public class TierraMediaTests {
 
 		PromoPorcentual promoPorcentual = new PromoPorcentual("pruebaPromoPorcentual", tipo, atracciones, 25);
 
-		String expected = "------PROMO 25% OFF!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto con descuento: "
-				+ promoPorcentual.getCostoTotal() + ", tiempo total: " + promoPorcentual.getTiempoTotal()
-				+ " minutos\n";
+		String expected = "------PROMO 25% OFF!------ incluye:\n" + Arrays.toString(atracciones)
+				+ "\nCosto con descuento: " + promoPorcentual.getCostoTotal() + ", tiempo total: "
+				+ promoPorcentual.getTiempoTotal() + " minutos\n";
 
 		assertEquals(expected, promoPorcentual.toString());
 	}
@@ -266,10 +268,11 @@ public class TierraMediaTests {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 480, tipo);
-		String expected = usuarioPruebas.getNombre() + ", Tipo de atraccion favorita: " + usuarioPruebas.getTipoAtraccion()
-						  + "\nPromociones compradas:"	+ usuarioPruebas.promocionesAceptadas + "\nAtracciones sin promo compradas: "
-						  + usuarioPruebas.atraccionesCompradas + "\n[Total a gastar:" + usuarioPruebas.getCostoFinal()
-						  + ", Tiempo total estimado: " + usuarioPruebas.getTiempoFinal() + "]\n\n";
+		String expected = usuarioPruebas.getNombre() + ", Tipo de atraccion favorita: "
+				+ usuarioPruebas.getTipoAtraccion() + "\nPromociones compradas:" + usuarioPruebas.promocionesAceptadas
+				+ "\nAtracciones sin promo compradas: " + usuarioPruebas.atraccionesCompradas + "\n[Total a gastar:"
+				+ usuarioPruebas.getCostoFinal() + ", Tiempo total estimado: " + usuarioPruebas.getTiempoFinal()
+				+ "]\n\n";
 
 		assertEquals(expected, usuarioPruebas.toString());
 	}
@@ -280,59 +283,59 @@ public class TierraMediaTests {
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 480, tipo);
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		
+
 		assertTrue(usuarioPruebas.puedeComprar(atraccion1));
 	}
-	
+
 	@Test
 	public void usuarioNoPuedeComprarPorDinero() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 5, 480, tipo);
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		
+
 		assertFalse(usuarioPruebas.puedeComprar(atraccion1));
 	}
-	
+
 	@Test
 	public void usuarioNoPuedeComprarPorTiempo() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 25, tipo);
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
-		
+
 		assertFalse(usuarioPruebas.puedeComprar(atraccion1));
 	}
-	
+
 	@Test
 	public void usuarioNoPuedeComprarPorCupo() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 150, 25, tipo);
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 0, tipo);
-		
+
 		assertFalse(usuarioPruebas.puedeComprar(atraccion1));
 	}
-	
+
 	@Test
 	public void usuarioVerificaAtraccionYaComprada() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 1500, 1500, tipo);
-				
+
 		Atraccion atraccion = new Atraccion("atraccionSimple", 15, 150, 12, tipo);
-		
+
 		usuarioPruebas.aceptarOfertado(atraccion);
-		
+
 		assertTrue(usuarioPruebas.atraccionYaComprada(atraccion));
 	}
-	
+
 	@Test
 	public void usuarioVerificaPromoYaComprada() {
 		TipoAtraccion tipo = TipoAtraccion.TERROR;
 
 		Usuario usuarioPruebas = new Usuario("juan carlos", 1500, 1500, tipo);
-				
+
 		Atraccion atraccion1 = new Atraccion("primeraAtraccion", 15, 150, 12, tipo);
 		Atraccion atraccion2 = new Atraccion("segundaAtraccion", 25, 150, 12, tipo);
 		Atraccion atraccion3 = new Atraccion("terceraAtraccion", 7, 150, 12, tipo);
@@ -340,42 +343,11 @@ public class TierraMediaTests {
 		Atraccion[] atracciones = new Atraccion[] { atraccion1, atraccion2, atraccion3, atraccion4 };
 
 		PromoAxB promo2x1 = new PromoAxB("pruebaPromoAxB", tipo, atracciones, 3);
-		
+
 		usuarioPruebas.aceptarOfertado(promo2x1);
-		
+
 		assertTrue(usuarioPruebas.atraccionYaComprada(promo2x1));
 	}
-	
-//------------------------------------------ITINERARIO-----------------------------------------------------------------------------------//	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//------------------------------------------ITINERARIO-----------------------------------------------------------------------------------//	   
 }
