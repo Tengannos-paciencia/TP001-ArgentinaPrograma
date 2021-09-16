@@ -59,10 +59,9 @@ public class App {
 						System.out.println("Gracias por su compra " + usuarios[i].getNombre() + "\n"
 								+ "(dinero restante: " + usuarios[i].getDineroDisponible() + " monedas,"
 								+ " tiempo restante: " + usuarios[i].getTiempoDisponible() + " minutos)" + "\n\n");
-						System.out.println(
-								"-----------------------------------------------------------------------------------------------------");
-					}
-
+						System.out.println("-----------------------------------------------------------------------------------------------------");
+											}
+					System.out.println("-----------------------------------");
 				}
 
 			}
