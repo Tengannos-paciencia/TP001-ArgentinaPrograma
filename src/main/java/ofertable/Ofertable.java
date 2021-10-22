@@ -2,6 +2,10 @@ package ofertable;
 
 import java.util.List;
 
+import model.Atraccion;
+import model.Promocion;
+import varios.TipoAtraccion;
+
 public abstract class Ofertable {
 	protected Atraccion[] atracciones;
 	protected int costoTotal;
@@ -41,8 +45,8 @@ public abstract class Ofertable {
 
 	public abstract List<Atraccion> getListaAtracciones();
 
-	protected abstract int getCosto();
+	public abstract int getCosto();
 
-	protected abstract int getTiempo();
+	public abstract int getTiempo();
 
 }

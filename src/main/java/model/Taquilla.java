@@ -2,6 +2,9 @@ package model;
 
 import java.util.Arrays;
 
+import ofertable.ComparadorDeOfertables;
+import varios.TipoAtraccion;
+
 public class Taquilla {
 
 	private Promocion[] promociones;

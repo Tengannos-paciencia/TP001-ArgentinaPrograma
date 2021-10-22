@@ -2,6 +2,10 @@ package promociones;
 
 import java.util.Arrays;
 
+import model.Atraccion;
+import model.Promocion;
+import varios.TipoAtraccion;
+
 public class PromoAxB extends Promocion {
 	private int costoSinDescuento;
 	private int atraccionGratis;

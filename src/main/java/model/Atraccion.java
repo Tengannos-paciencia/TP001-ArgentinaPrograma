@@ -2,6 +2,9 @@ package model;
 
 import java.util.List;
 
+import ofertable.Ofertable;
+import varios.TipoAtraccion;
+
 public class Atraccion extends Ofertable {
 	protected String nombre;
 	protected TipoAtraccion tipoDeAtraccion;

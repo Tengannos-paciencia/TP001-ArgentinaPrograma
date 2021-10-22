@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import ofertable.Ofertable;
+import varios.TipoAtraccion;
+
 public abstract class Promocion extends Ofertable {
 	protected Atraccion[] atracciones;
 	protected String nombre;
@@ -119,7 +122,7 @@ public abstract class Promocion extends Ofertable {
 	}
 
 	@Override
-	protected int getTiempo() {
+	public int getTiempo() {
 		return tiempoTotal;
 
 	}
