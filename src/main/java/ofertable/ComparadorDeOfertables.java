@@ -1,6 +1,9 @@
 package ofertable;
 
+
 import java.util.Comparator;
+
+import varios.TipoAtraccion;
 
 public class ComparadorDeOfertables implements Comparator<Ofertable> {
 	TipoAtraccion tipoFavorito;
