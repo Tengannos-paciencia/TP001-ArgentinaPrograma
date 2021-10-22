@@ -1,10 +1,15 @@
 <<<<<<< HEAD
 archivos_salida
+archivos_entrada
+entrada_test
+salida_test
 =======
 
 <<<<<<< HEAD
 archivos_salida
-
+archivos_entrada
+entrada_test
+salida_test
 =======
 >>>>>>> 74e951430ccd4bd48fe7e64b7a56fd2f68bc5d07
 >>>>>>> 3e62d2a20755391fdb701ba1d23b9035fefca347
@@ -31,3 +36,4 @@ archivos_salida
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/target/

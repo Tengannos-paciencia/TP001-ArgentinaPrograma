@@ -1,4 +1,4 @@
-package paquete;
+package promociones;
 
 import java.util.Arrays;
 
