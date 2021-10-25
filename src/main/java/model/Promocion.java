@@ -7,9 +7,9 @@ import ofertable.Ofertable;
 import varios.TipoAtraccion;
 
 public abstract class Promocion extends Ofertable {
-	protected Atraccion[] atracciones;
+	protected List<Atraccion> atracciones;
 	protected String nombre;
-	protected TipoAtraccion tipoDePromocion;
+	protected int tipoDePromocion;
 	protected int costo;
 	protected String tipoPromo;
 	protected int costoTotal;
@@ -18,7 +18,7 @@ public abstract class Promocion extends Ofertable {
 	public Promocion() {
 	}
 
-	public Promocion(String nombre, Atraccion[] atracciones, TipoAtraccion tipo) {
+	public Promocion(String nombre, List<Atraccion> atracciones, int tipo) {
 		this.atracciones = atracciones;
 		this.nombre = nombre;
 		this.tipoDePromocion = tipo;
@@ -28,7 +28,7 @@ public abstract class Promocion extends Ofertable {
 		this.setCosto();
 	}
 
-	public Promocion(String nombre, Atraccion[] atracciones, TipoAtraccion tipo, String tipoPromo) {
+	public Promocion(String nombre, List<Atraccion> atracciones, int tipo, String tipoPromo) {
 		this.atracciones = atracciones;
 		this.nombre = nombre;
 		this.tipoDePromocion = tipo;
@@ -39,7 +39,7 @@ public abstract class Promocion extends Ofertable {
 		this.setCosto();
 	}
 
-	public TipoAtraccion getTipo() {
+	public int getTipo() {
 		return tipoDePromocion;
 	}
 
@@ -71,7 +71,7 @@ public abstract class Promocion extends Ofertable {
 	}
 
 	protected void setTipoDePromocion() {
-		this.tipoDePromocion = atracciones[0].getTipo();
+		this.tipoDePromocion = atracciones.get(0).getTipo();
 	}
 
 	public void setCosto() {
@@ -90,15 +90,15 @@ public abstract class Promocion extends Ofertable {
 		ArrayList<Atraccion> lista = new ArrayList<Atraccion>();
 
 		for (Atraccion atraccion : atracciones) {
-			String nombreAtraccion = atraccion.getNombre();
-			lista.add(obtenerAtraccionPorNombreAtraccion(nombreAtraccion));
+			int idAtraccion = atraccion.getId();
+			lista.add(obtenerAtraccionPorIdAtraccion(idAtraccion));
 		}
 		return lista;
 	}
 
-	public Atraccion obtenerAtraccionPorNombreAtraccion(String nombreAtraccion) {
+	public Atraccion obtenerAtraccionPorIdAtraccion(int id) {
 		for (Atraccion atraccion : atracciones) {
-			if (atraccion.getNombre().equals(nombreAtraccion)) {
+			if (atraccion.getId() == id) {
 				return atraccion;
 			}
 		}

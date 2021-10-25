@@ -36,9 +36,9 @@ public class Taquilla {
 		this.usuarios = usuarios;
 	}
 
-	public Atraccion obtenerAtraccionPorTipo(TipoAtraccion tipo) {
+	public Atraccion obtenerAtraccionPorTipo(int tipo) {
 		for (Atraccion atraccion : atracciones) {
-			if (atraccion.getTipo().equals(tipo)) {
+			if (atraccion.getTipo() == tipo) {
 				return atraccion;
 			}
 		}

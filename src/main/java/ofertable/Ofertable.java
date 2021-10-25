@@ -7,10 +7,10 @@ import model.Promocion;
 import varios.TipoAtraccion;
 
 public abstract class Ofertable {
-	protected Atraccion[] atracciones;
+	protected List<Atraccion> atracciones;
 	protected int costoTotal;
 	protected int tiempoTotal;
-	TipoAtraccion tipoAtraccion;
+	int tipoAtraccion;
 
 	public Ofertable() {
 	}
@@ -27,7 +27,7 @@ public abstract class Ofertable {
 
 	public abstract void setTiempoTotal();
 
-	public TipoAtraccion getTipo() {
+	public int getTipo() {
 		return this.tipoAtraccion;
 	}
 
@@ -39,7 +39,7 @@ public abstract class Ofertable {
 		return (this instanceof Atraccion);
 	}
 
-	public Atraccion[] getAtracciones() {
+	public List<Atraccion> getAtracciones() {
 		return atracciones;
 	}
 
@@ -48,5 +48,14 @@ public abstract class Ofertable {
 	public abstract int getCosto();
 
 	public abstract int getTiempo();
-
+/*	
+	public Atraccion obtenerAtraccionPorIdAtraccion(int id) {
+		for (Atraccion atraccion : atracciones) {
+			if (atraccion.getId() == id) {
+				return atraccion;
+			}
+		}
+		return null;
+	}
+*/
 }

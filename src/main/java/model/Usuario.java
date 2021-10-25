@@ -11,14 +11,14 @@ public class Usuario extends Taquilla {
 	private String nombre;
 	private int dineroDisponible;
 	private int tiempoDisponible;
-	private TipoAtraccion tipoAtraccion;
+	private int tipoAtraccion;
 	ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
-	LinkedList<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>();
-	ArrayList<Atraccion> atraccionesCompradasSinPromo = new ArrayList<Atraccion>();
+	LinkedList<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>(); 		//atracciones en promo
+	ArrayList<Atraccion> atraccionesCompradasSinPromo = new ArrayList<Atraccion>(); //atracciones sueltas
 	private int costoFinal;
 	private int tiempoFinal;
 
-	public Usuario(String nombre, int presupuesto, int tiempoEnMinutos, TipoAtraccion tipo) {
+	public Usuario(String nombre, int presupuesto, int tiempoEnMinutos, int tipo) {
 		this.nombre = nombre;
 		this.dineroDisponible = presupuesto;
 		this.tiempoDisponible = tiempoEnMinutos;
@@ -101,7 +101,7 @@ public class Usuario extends Taquilla {
 		return tiempoDisponible;
 	}
 
-	public TipoAtraccion getTipoAtraccion() {
+	public int getTipoAtraccion() {
 		return tipoAtraccion;
 	}
 
@@ -115,9 +115,25 @@ public class Usuario extends Taquilla {
 
 	@Override
 	public String toString() {
-		return nombre + ", Tipo de atraccion favorita: " + tipoAtraccion + "\nPromociones compradas:"
+		return nombre + ", Tipo de atraccion favorita: " + this.nombreTipo() + "\nPromociones compradas:"
 				+ promocionesAceptadas + "\nAtracciones sin promo compradas: " + atraccionesCompradasSinPromo
 				+ "\n[Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]" + "\n\n";
 
+	}
+	
+	public String nombreTipo() {
+		switch (this.tipoAtraccion) {
+		case 1: {
+			return "TERROR";
+		}
+		case 2: {
+			return "AUDIOVISUAL";
+		}
+		case 3: {
+			return "EXPLORACION";
+		}
+		
+		}
+		return "prueba nombreTipo";
 	}
 }

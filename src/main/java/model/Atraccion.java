@@ -1,18 +1,21 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ofertable.Ofertable;
 import varios.TipoAtraccion;
 
 public class Atraccion extends Ofertable {
+	protected int id;
 	protected String nombre;
-	protected TipoAtraccion tipoDeAtraccion;
+	protected int tipoDeAtraccion;
 	protected int tiempoEnMinutos;
 	protected int costo;
 	protected int cupo;
 
-	public Atraccion(String nombre, int costo, int tiempo, int cupo, TipoAtraccion tipo) {
+	public Atraccion(int id, String nombre, int costo, int tiempo, int cupo, int tipo) {
+		this.id = id;
 		this.nombre = nombre;
 		this.tiempoEnMinutos = tiempo;
 		this.costo = costo;
@@ -24,7 +27,7 @@ public class Atraccion extends Ofertable {
 		return this.nombre;
 	}
 
-	public TipoAtraccion getTipo() {
+	public int getTipo() {
 		return this.tipoDeAtraccion;
 	}
 
@@ -77,7 +80,7 @@ public class Atraccion extends Ofertable {
 	}
 
 	@Override
-	public Atraccion[] getAtracciones() {
+	public List<Atraccion> getAtracciones() {
 		return null;
 
 	}
@@ -91,4 +94,22 @@ public class Atraccion extends Ofertable {
 	public List<Atraccion> getListaAtracciones() {
 		return null;
 	}
+	
+	public int getId() {
+		return this.id;
+	}
+
+	public List<Atraccion> getAtraccionesPorId(int id){
+		
+		List<Atraccion> atraccionesPorId = new ArrayList<Atraccion>();
+		
+		for (Atraccion atraccion : atracciones) {
+			if(atraccion.getId() == id) {
+				atraccionesPorId.add(atraccion);
+			}
+		}
+		return atraccionesPorId;
+	}
+
+	
 }

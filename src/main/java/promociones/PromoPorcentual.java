@@ -1,6 +1,7 @@
 package promociones;
 
 import java.util.Arrays;
+import java.util.List;
 
 import model.Atraccion;
 import model.Promocion;
@@ -10,7 +11,7 @@ public class PromoPorcentual extends Promocion {
 	private double porcentajeDescuento;
 	private int costoSinDescuento;
 
-	public PromoPorcentual(String nombre, TipoAtraccion tipo, Atraccion[] atracciones, int porcentajeDescuento) {
+	public PromoPorcentual(String nombre, int tipo, List<Atraccion> atracciones, int porcentajeDescuento) {
 		this.porcentajeDescuento = porcentajeDescuento;
 		this.atracciones = atracciones;
 		this.nombre = nombre;
@@ -35,7 +36,7 @@ public class PromoPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return "------PROMO 25% OFF!------ incluye:\n" + Arrays.toString(atracciones) + "\nCosto con descuento: "
+		return "------PROMO 25% OFF!------ incluye:\n" + /*CAMBIAR A TOSTRING*/Arrays.asList(atracciones) + "\nCosto con descuento: "
 				+ this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos\n";
 	}
 }

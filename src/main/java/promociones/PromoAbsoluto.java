@@ -1,6 +1,7 @@
 package promociones;
 
 import java.util.Arrays;
+import java.util.List;
 
 import model.Atraccion;
 import model.Promocion;
@@ -9,7 +10,7 @@ import varios.TipoAtraccion;
 public class PromoAbsoluto extends Promocion {
 	private int costoPromo;
 
-	public PromoAbsoluto(String nombre, TipoAtraccion tipo, Atraccion[] atraccionesPromocion, int costoPromo) {
+	public PromoAbsoluto(String nombre, int tipo, List<Atraccion> atraccionesPromocion, int costoPromo) {
 		this.costoPromo = costoPromo;
 		this.atracciones = atraccionesPromocion;
 		this.nombre = nombre;
@@ -25,7 +26,7 @@ public class PromoAbsoluto extends Promocion {
 
 	@Override
 	public String toString() {
-		return "------PROMO GUISO ESPELUZNANTE------ incluye:\n" + Arrays.toString(atracciones)
+		return "------PROMO GUISO ESPELUZNANTE------ incluye:\n" + /*CAMBIAR A TOSTRING*/Arrays.asList(atracciones)
 				+ "\nCosto con descuento: " + this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos\n";
 
 	}
