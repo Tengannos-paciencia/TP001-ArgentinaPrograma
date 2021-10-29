@@ -37,7 +37,11 @@ public class Usuario extends Taquilla {
 	public LinkedList<Atraccion> getAtraccionesCompradas() {
 		return atraccionesCompradas;
 	}
-
+	
+	public ArrayList<Promocion> getPromocionesAceptadas() {
+		return promocionesAceptadas;
+	}
+	
 	public boolean puedeComprar(Ofertable o) {
 		if (dineroYTiempoSuficientes(o) && o != null) {
 			return true;
