@@ -1,37 +1,38 @@
 package model;
 
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import ofertable.ComparadorDeOfertables;
 
 public class Taquilla {
 
-	private Promocion[] promociones;
-	private Usuario[] usuarios;
-	private Atraccion[] atracciones;
+	private List<Promocion> promociones;
+	private List<Usuario> usuarios;
+	private List<Atraccion> atracciones;
 
-	public Atraccion[] getAtracciones() {
+	public List<Atraccion> getAtracciones() {
 		return atracciones;
 	}
 
-	public Promocion[] getPromociones() {
+	public List<Promocion> getPromociones() {
 		return promociones;
 
 	}
 
-	public Usuario[] getUsuarios() {
+	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
 
-	public void agregarTodasLasAtracciones(Atraccion[] atracciones) {
+	public void agregarTodasLasAtracciones(List<Atraccion> atracciones) {
 		this.atracciones = atracciones;
 	}
 
-	public void agregarTodasLasPromociones(Promocion[] promociones) {
+	public void agregarTodasLasPromociones(List<Promocion> promociones) {
 		this.promociones = promociones;
 	}
 
-	public void agregarTodosLosUsuarios(Usuario[] usuarios) {
+	public void agregarTodosLosUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
 
@@ -46,8 +47,8 @@ public class Taquilla {
 
 	@Override
 	public String toString() {
-		return "Parque del Terror [atracciones=" + Arrays.toString(atracciones) + ", promociones=\n"
-				+ Arrays.toString(promociones) + ", usuarios=\n" + Arrays.toString(usuarios) + "]";
+		return "Parque del Terror [atracciones=" + atracciones + ", promociones=\n"
+				+ promociones + ", usuarios=\n" + usuarios + "]";
 	}
 
 	public Atraccion obtenerAtraccionPorNombreAtraccion(String nombreAtraccion) {
@@ -60,10 +61,10 @@ public class Taquilla {
 	}
 
 	public void ordenarLasPromociones() {
-		Arrays.sort(this.promociones, new ComparadorDeOfertables());
+		Collections.sort(this.promociones, new ComparadorDeOfertables());
 	}
 
 	public void ordenarLasAtracciones() {
-		Arrays.sort(this.atracciones, new ComparadorDeOfertables());
+		Collections.sort(this.atracciones, new ComparadorDeOfertables());
 	}
 }
