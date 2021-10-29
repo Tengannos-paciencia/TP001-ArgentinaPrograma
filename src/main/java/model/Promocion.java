@@ -7,6 +7,7 @@ import ofertable.Ofertable;
 import varios.TipoAtraccion;
 
 public abstract class Promocion extends Ofertable {
+	protected int id;
 	protected List<Atraccion> atracciones;
 	protected String nombre;
 	protected int tipoDePromocion;
@@ -28,7 +29,8 @@ public abstract class Promocion extends Ofertable {
 		this.setCosto();
 	}
 
-	public Promocion(String nombre, List<Atraccion> atracciones, int tipo, String tipoPromo) {
+	public Promocion(int id, String nombre, List<Atraccion> atracciones, int tipo, String tipoPromo) {
+		this.id = id;
 		this.atracciones = atracciones;
 		this.nombre = nombre;
 		this.tipoDePromocion = tipo;
@@ -90,7 +92,7 @@ public abstract class Promocion extends Ofertable {
 		ArrayList<Atraccion> lista = new ArrayList<Atraccion>();
 
 		for (Atraccion atraccion : atracciones) {
-			int idAtraccion = atraccion.getId();
+			int idAtraccion = atraccion.getID();
 			lista.add(obtenerAtraccionPorIdAtraccion(idAtraccion));
 		}
 		return lista;
@@ -98,7 +100,7 @@ public abstract class Promocion extends Ofertable {
 
 	public Atraccion obtenerAtraccionPorIdAtraccion(int id) {
 		for (Atraccion atraccion : atracciones) {
-			if (atraccion.getId() == id) {
+			if (atraccion.getID() == id) {
 				return atraccion;
 			}
 		}
@@ -125,6 +127,9 @@ public abstract class Promocion extends Ofertable {
 	public int getTiempo() {
 		return tiempoTotal;
 
+	}
+	public int getID() {
+		return this.id;
 	}
 
 }

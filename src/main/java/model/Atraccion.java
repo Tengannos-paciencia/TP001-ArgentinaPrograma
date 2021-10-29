@@ -95,7 +95,7 @@ public class Atraccion extends Ofertable {
 		return null;
 	}
 	
-	public int getId() {
+	public int getID() {
 		return this.id;
 	}
 
@@ -104,7 +104,7 @@ public class Atraccion extends Ofertable {
 		List<Atraccion> atraccionesPorId = new ArrayList<Atraccion>();
 		
 		for (Atraccion atraccion : atracciones) {
-			if(atraccion.getId() == id) {
+			if(atraccion.getID() == id) {
 				atraccionesPorId.add(atraccion);
 			}
 		}

@@ -38,4 +38,8 @@ public class PromoAxB extends Promocion {
 				+ this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos\n";
 
 	}
+	@Override
+	public int getID() {
+		return super.getID();
+	}
 }

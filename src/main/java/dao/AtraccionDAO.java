@@ -16,8 +16,8 @@ public class AtraccionDAO {
 		Connection conn = ConnectionProvider.getConnection();
 
 		PreparedStatement statement = conn.prepareStatement(sql);
-		statement.setInt(1, (atraccion.getCupo() - 1));
-		statement.setInt(2, atraccion.getId());
+		statement.setInt(1, (atraccion.getCupo()));
+		statement.setInt(2, atraccion.getID());
 		int rows = statement.executeUpdate();
 
 		return rows;

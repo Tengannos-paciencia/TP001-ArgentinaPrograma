@@ -42,7 +42,7 @@ public class PromocionDAO {
 			for (String id : idSpliteado) {
 				int idUsable = Integer.parseInt(id);
 				for (Atraccion cadaAtraccion : atraccionesDAO) {
-					if (idUsable == cadaAtraccion.getId()) {
+					if (idUsable == cadaAtraccion.getID()) {
 						atraccionesIncluidas.add(cadaAtraccion);
 					}
 				}

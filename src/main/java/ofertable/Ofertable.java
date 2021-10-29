@@ -48,4 +48,20 @@ public abstract class Ofertable {
 	public abstract int getCosto();
 
 	public abstract int getTiempo();
+
+	public int getPromocionID() {
+		if (this.esPromocion()) {
+			return this.getID();
+		}
+		return 0;
+	}
+
+	public int getAtraccionID() {
+		if (this.esAtraccion()) {
+			return this.getID();
+		}
+		return 0;
+	}
+
+	public abstract int getID();
 }

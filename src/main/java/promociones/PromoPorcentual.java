@@ -36,7 +36,12 @@ public class PromoPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return "------PROMO 25% OFF!------ incluye:\n" + /*CAMBIAR A TOSTRING*/Arrays.asList(atracciones) + "\nCosto con descuento: "
-				+ this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos\n";
+		return "------PROMO 25% OFF!------ incluye:\n" + /* CAMBIAR A TOSTRING */Arrays.asList(atracciones)
+				+ "\nCosto con descuento: " + this.costoTotal + ", tiempo total: " + this.tiempoTotal + " minutos\n";
+	}
+
+	@Override
+	public int getID() {
+		return super.getID();
 	}
 }

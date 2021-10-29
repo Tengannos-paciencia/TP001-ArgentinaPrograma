@@ -31,4 +31,9 @@ public class PromoAbsoluto extends Promocion {
 
 	}
 
+	@Override
+	public int getID() {
+		return super.getID();
+	}
+
 }
