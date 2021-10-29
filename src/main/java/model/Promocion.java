@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ofertable.Ofertable;
-import varios.TipoAtraccion;
 
 public abstract class Promocion extends Ofertable {
 	protected int id;

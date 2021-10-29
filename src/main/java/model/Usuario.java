@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import ofertable.Ofertable;
-import varios.TipoAtraccion;
 
 public class Usuario extends Taquilla {
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 import model.Atraccion;
 import model.Promocion;
-import varios.TipoAtraccion;
 
 public class PromoAxB extends Promocion {
 	private int costoSinDescuento;

@@ -4,7 +4,6 @@ import java.util.List;
 
 import model.Atraccion;
 import model.Promocion;
-import varios.TipoAtraccion;
 
 public abstract class Ofertable {
 	protected List<Atraccion> atracciones;
