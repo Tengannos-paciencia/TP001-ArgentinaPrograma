@@ -70,9 +70,10 @@ public class App {
 									+ "(dinero restante: " + usuarios.get(i).getDineroDisponible() + " monedas,"
 									+ " tiempo restante: " + usuarios.get(i).getTiempoDisponible() + " minutos)" + "\n\n");
 							System.out.println("-----------------------------------------------------------------------------------------------------");
-												}
+							iDAO.insert(usuarios.get(i), oferta);					
+						}
 						System.out.println("-----------------------------------");
-						iDAO.insert(usuarios.get(i), oferta);
+						
 					}
 
 				}
