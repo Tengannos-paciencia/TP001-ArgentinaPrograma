@@ -6,12 +6,12 @@ import java.util.Comparator;
 import varios.TipoAtraccion;
 
 public class ComparadorDeOfertables implements Comparator<Ofertable> {
-	TipoAtraccion tipoFavorito;
+	int tipoFavorito;
 
 	public ComparadorDeOfertables() {
 	}
 
-	public ComparadorDeOfertables(TipoAtraccion tipoFavorito) {
+	public ComparadorDeOfertables(int tipoFavorito) {
 		this.tipoFavorito = tipoFavorito;
 	}
 

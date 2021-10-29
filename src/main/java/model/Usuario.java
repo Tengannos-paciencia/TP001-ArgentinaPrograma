@@ -8,6 +8,7 @@ import varios.TipoAtraccion;
 
 public class Usuario extends Taquilla {
 
+	private int id;
 	private String nombre;
 	private int dineroDisponible;
 	private int tiempoDisponible;
@@ -18,7 +19,8 @@ public class Usuario extends Taquilla {
 	private int costoFinal;
 	private int tiempoFinal;
 
-	public Usuario(String nombre, int presupuesto, int tiempoEnMinutos, int tipo) {
+	public Usuario(int id, String nombre, int presupuesto, int tiempoEnMinutos, int tipo) {
+		this.id = id;
 		this.nombre = nombre;
 		this.dineroDisponible = presupuesto;
 		this.tiempoDisponible = tiempoEnMinutos;
@@ -134,6 +136,12 @@ public class Usuario extends Taquilla {
 		}
 		
 		}
-		return "prueba nombreTipo";
+		return null;
 	}
+
+	public int getId() {
+		return this.id;
+	}
+	
+	
 }

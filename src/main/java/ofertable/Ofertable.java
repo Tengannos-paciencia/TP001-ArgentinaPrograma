@@ -48,14 +48,4 @@ public abstract class Ofertable {
 	public abstract int getCosto();
 
 	public abstract int getTiempo();
-/*	
-	public Atraccion obtenerAtraccionPorIdAtraccion(int id) {
-		for (Atraccion atraccion : atracciones) {
-			if (atraccion.getId() == id) {
-				return atraccion;
-			}
-		}
-		return null;
-	}
-*/
 }

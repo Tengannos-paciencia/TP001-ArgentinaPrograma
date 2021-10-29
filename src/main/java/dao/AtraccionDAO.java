@@ -28,17 +28,23 @@ public class AtraccionDAO {
 		Connection conn = ConnectionProvider.getConnection();
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
-		
-		Atraccion atraccion = null;
 
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
 		
 		while (resultados.next()) {
-			atraccion = new Atraccion(resultados.getInt("id"),resultados.getString("nombre"),resultados.getInt("costo"),resultados.getInt("tiempo"),resultados.getInt("cupoDisponible"),resultados.getInt("tipoAtraccion"));
-			atracciones.add(atraccion);
+			atracciones.add(toAtraccion(resultados));
 		}
 
 		return atracciones;
+	}
+	
+	private Atraccion toAtraccion (ResultSet resultados) throws SQLException{
+		return new Atraccion (resultados.getInt("id"),
+							  resultados.getString("nombre"),
+							  resultados.getInt("costo"),
+							  resultados.getInt("tiempo"),
+							  resultados.getInt("cupoDisponible"),
+							  resultados.getInt("tipoAtraccion"));
 	}
 	
 }
