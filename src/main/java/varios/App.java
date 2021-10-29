@@ -31,17 +31,14 @@ public class App {
 			nuevaTaquilla.agregarTodosLosUsuarios(uDAO.findAll());
 
 			List<Usuario> usuarios = nuevaTaquilla.getUsuarios();
-			// System.out.println(Arrays.toString(usuarios));
 
 			nuevaTaquilla.agregarTodasLasAtracciones(aDAO.findAll());
 
 			List<Atraccion> atracciones = nuevaTaquilla.getAtracciones();
-			// System.out.println(Arrays.toString(atracciones));
 
 			nuevaTaquilla.agregarTodasLasPromociones(pDAO.findAll(atracciones));
 
 			List<Promocion> promociones = nuevaTaquilla.getPromociones();
-			// System.out.println(Arrays.toString(promociones));
 			
 			List<Ofertable> ofertas = new LinkedList<Ofertable>();
 
@@ -79,7 +76,7 @@ public class App {
 					}
 
 				}
-
+				uDAO.update(usuarios.get(i));
 			}
 			for (int i = 0; i < 50; ++i)
 				System.out.println();
