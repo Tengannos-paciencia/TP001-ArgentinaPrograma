@@ -1,6 +1,5 @@
 package promociones;
 
-import java.util.Arrays;
 import java.util.List;
 
 import model.Atraccion;
@@ -9,6 +8,7 @@ import model.Promocion;
 public class PromoPorcentual extends Promocion {
 	private double porcentajeDescuento;
 	private int costoSinDescuento;
+	private int id = 1;
 
 	public PromoPorcentual(String nombre, int tipo, List<Atraccion> atracciones, int porcentajeDescuento) {
 		this.porcentajeDescuento = porcentajeDescuento;
@@ -41,6 +41,6 @@ public class PromoPorcentual extends Promocion {
 
 	@Override
 	public int getID() {
-		return super.getID();
+		return this.id;
 	}
 }

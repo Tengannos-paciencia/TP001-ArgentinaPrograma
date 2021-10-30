@@ -28,6 +28,7 @@ public class App {
 			ItinerarioDAO iDAO = new ItinerarioDAO();
 			Scanner consolita = new Scanner(System.in);
 			String respuesta = "";
+			
 			nuevaTaquilla.agregarTodosLosUsuarios(uDAO.findAll());
 
 			List<Usuario> usuarios = nuevaTaquilla.getUsuarios();
@@ -38,19 +39,23 @@ public class App {
 
 			nuevaTaquilla.agregarTodasLasPromociones(pDAO.findAll(atracciones));
 
-			List<Promocion> promociones = nuevaTaquilla.getPromociones();
+			//List<Promocion> promociones = nuevaTaquilla.getPromociones();
 			
 			List<Ofertable> ofertas = new LinkedList<Ofertable>();
 
-			ofertas.addAll(promociones);
-			ofertas.addAll(atracciones);
-
+			ofertas.addAll(nuevaTaquilla.getPromociones());
+			ofertas.addAll(nuevaTaquilla.getAtracciones());
+/*			
+			System.out.println(promociones);
+			System.out.println(atracciones);
+			System.out.println(ofertas);
+*/
 			for (int i = 0; i < usuarios.size(); i++) {
 				int atraccionFavorita = usuarios.get(i).getTipoAtraccion();
 
 				Collections.sort(ofertas, new ComparadorDeOfertables(atraccionFavorita));
-				System.out
-						.println("*****Bienvenide " + usuarios.get(i).getNombre() + " al Parque del terror*****" + "\n" + "\n");
+//System.out.println(ofertas);
+				System.out.println("*****Bienvenide " + usuarios.get(i).getNombre() + " al Parque del terror*****\n\n");
 
 				for (int j = 0; j < ofertas.size(); j++) {
 					Ofertable oferta = ofertas.get(j);
@@ -70,15 +75,19 @@ public class App {
 									+ "(dinero restante: " + usuarios.get(i).getDineroDisponible() + " monedas,"
 									+ " tiempo restante: " + usuarios.get(i).getTiempoDisponible() + " minutos)" + "\n\n");
 							System.out.println("-----------------------------------------------------------------------------------------------------");
-							iDAO.insert(usuarios.get(i), oferta);					
+							System.out.println(oferta.getListaAtracciones());
+							//iDAO.insert(usuarios.get(i), oferta);					
 						}
+						System.out.println(oferta.getListaAtracciones());
+						System.out.println(usuarios.get(i).getAtraccionesCompradas());
 						System.out.println("-----------------------------------");
 						
 					}
 
 				}
-				uDAO.update(usuarios.get(i));
+				//uDAO.update(usuarios.get(i));
 			}
+
 			for (int i = 0; i < 50; ++i)
 				System.out.println();
 			System.out.println("--------Muchas gracias por visitar nuestro parque, vuelva prontos--------");

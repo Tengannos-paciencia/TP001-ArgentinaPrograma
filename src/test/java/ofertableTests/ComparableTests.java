@@ -29,6 +29,7 @@ public class ComparableTests {
 		actualCosto.add(atraccion2);
 		actualCosto.add(atraccion1);
 		Collections.sort(actualCosto, new ComparadorDeOfertables(tipo1));
+		
 		List<Atraccion> expectedCosto = new ArrayList<Atraccion>();
 		expectedCosto.add(atraccion2);
 		expectedCosto.add(atraccion1);

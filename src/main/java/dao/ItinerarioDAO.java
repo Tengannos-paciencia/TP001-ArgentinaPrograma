@@ -10,7 +10,7 @@ import ofertable.Ofertable;
 public class ItinerarioDAO {
 	//insert
 	public int insert (Usuario usuario, Ofertable ofertaAceptada) throws SQLException{
-		String sql = "INSERT INTO itinerarios (idUsuario, promocionesCompradas, atraccionesCompradas, costoTotal, tiempoTotal) "
+		String sql = "INSERT INTO itinerarios (idUsuario, promocionesCompradas, atraccionesCompradas, costoTotal, tiempoTotal) " //cambiar a costoParcial y tiempoParcial
 				   + "VALUES (?, ?, ?, ?, ?)";
 		Connection conn = ConnectionProvider.getConnection();
 		
@@ -19,7 +19,7 @@ public class ItinerarioDAO {
 			statement.setInt(1, usuario.getId());
 			statement.setInt(2, ofertaAceptada.getID());
 			statement.setNull(3, 0);
-			statement.setInt(4, usuario.getCostoFinal());
+			statement.setInt(4, usuario.getCostoFinal()); 
 			statement.setInt(5, usuario.getTiempoFinal());
 		}
 		if(ofertaAceptada.esAtraccion()) {
@@ -34,18 +34,4 @@ public class ItinerarioDAO {
 		
 		return rows;
 	}
-	//update
-	/*
-	public int update(User user) throws SQLException{
-		String sql = "UPDATE USERS SET PASSWORD = ? WHERE USER = ?";
-		Connection conn = ConnectionProvider.getConnection();
-		
-		PreparedStatement statement = conn.prepareStatement(sql);
-		statement.setString(1, user.getPassword());
-		statement.setInt(2, user.getUser());
-		int rows = statement.executeUpdate();
-		
-		return rows;
-	}
-	*/
 }

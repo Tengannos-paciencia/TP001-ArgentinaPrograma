@@ -1,6 +1,5 @@
 package promociones;
 
-import java.util.Arrays;
 import java.util.List;
 
 import model.Atraccion;
@@ -9,6 +8,7 @@ import model.Promocion;
 public class PromoAxB extends Promocion {
 	private int costoSinDescuento;
 	private int atraccionGratis;
+	private int id = 3;
 
 	public PromoAxB(String nombre, int tipo, List<Atraccion> atracciones, int indiceAtraccionGratis) {
 		this.atracciones = atracciones;
@@ -39,6 +39,6 @@ public class PromoAxB extends Promocion {
 	}
 	@Override
 	public int getID() {
-		return super.getID();
+		return this.id;
 	}
 }

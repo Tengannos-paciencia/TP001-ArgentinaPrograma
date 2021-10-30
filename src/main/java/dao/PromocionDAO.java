@@ -16,8 +16,7 @@ import promociones.PromoAxB;
 import promociones.PromoPorcentual;
 
 public class PromocionDAO {
-
-	@SuppressWarnings("unused")
+	
 	public List<Promocion> findAll(List<Atraccion> listaAtracciones) throws SQLException {
 		String sql = "SELECT promociones.*, group_concat(ap.idAtracciones) AS \"atracciones\"\n" + "FROM promociones\n"
 				+ "JOIN atracciones_En_Promocion ap ON ap.idPromocion = promociones.id \n" + "GROUP BY promociones.id";
@@ -49,22 +48,20 @@ public class PromocionDAO {
 			}
 
 			switch (tipoPromocion) {
-			case "PromoPorcentual": {
-				promo: new PromoPorcentual(resultados.getString("nombre"), resultados.getInt("tipoPromo"),
-						atraccionesIncluidas, resultados.getInt("datoDescuento"));
-				break;
-			}
-			case "PromoAxB": {
-				promo: new PromoAxB(resultados.getString("nombre"), resultados.getInt("tipoPromo"),
-						atraccionesIncluidas, resultados.getInt("datoDescuento"));
-				break;
-			}
-			case "PromoAbsoluta": {
-				promo: new PromoAbsoluto(resultados.getString("nombre"), resultados.getInt("tipoPromo"),
-						atraccionesIncluidas, resultados.getInt("datoDescuento"));
-				break;
-			}
-
+				case "PromoPorcentual": 
+					promo = new PromoPorcentual(resultados.getString("nombre"), resultados.getInt("tipoPromo"),
+							atraccionesIncluidas, resultados.getInt("datoDescuento"));
+					break;
+				
+				case "PromoAxB": 
+					promo = new PromoAxB(resultados.getString("nombre"), resultados.getInt("tipoPromo"),
+							atraccionesIncluidas, resultados.getInt("datoDescuento"));
+					break;
+				
+				case "PromoAbsoluta": 
+					promo = new PromoAbsoluto(resultados.getString("nombre"), resultados.getInt("tipoPromo"),
+							atraccionesIncluidas, resultados.getInt("datoDescuento"));
+					break;
 			}
 
 			promocion.add(promo);

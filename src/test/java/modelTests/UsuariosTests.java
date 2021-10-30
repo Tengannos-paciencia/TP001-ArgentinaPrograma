@@ -14,6 +14,7 @@ import promociones.PromoAxB;
 public class UsuariosTests {
 
 	// ------------------------------------------USUARIO--------------------------------------------------------------------------------------//
+
 	@Test
 	public void quePuedeCrearUsuario() {
 		int tipo = 1;
