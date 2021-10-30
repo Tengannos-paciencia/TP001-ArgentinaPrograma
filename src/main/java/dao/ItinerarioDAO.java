@@ -2,8 +2,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+
 import java.sql.SQLException;
+
+
 import jdbc.ConnectionProvider;
+
 import model.Usuario;
 import ofertable.Ofertable;
 
@@ -19,19 +23,19 @@ public class ItinerarioDAO {
 			statement.setInt(1, usuario.getId());
 			statement.setInt(2, ofertaAceptada.getID());
 			statement.setNull(3, 0);
-			statement.setInt(4, usuario.getCostoFinal()); 
-			statement.setInt(5, usuario.getTiempoFinal());
+			statement.setInt(4, ofertaAceptada.getCostoTotal()); 
+			statement.setInt(5, ofertaAceptada.getTiempoTotal());
 		}
 		if(ofertaAceptada.esAtraccion()) {
 			statement.setInt(1, usuario.getId());
 			statement.setNull(2, 0);
 			statement.setInt(3, ofertaAceptada.getID());
-			statement.setInt(4, usuario.getCostoFinal());
-			statement.setInt(5, usuario.getTiempoFinal());
+			statement.setInt(4, ofertaAceptada.getCostoTotal());
+			statement.setInt(5, ofertaAceptada.getTiempoTotal());
 		}
 		
 		int rows = statement.executeUpdate();
 		
 		return rows;
 	}
-}
+	}

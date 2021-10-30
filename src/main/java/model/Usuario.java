@@ -13,8 +13,8 @@ public class Usuario extends Taquilla {
 	private int tiempoDisponible;
 	private int tipoAtraccion;
 	ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
-	LinkedList<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>(); 		//atracciones en promo
-	ArrayList<Atraccion> atraccionesCompradasSinPromo = new ArrayList<Atraccion>(); //atracciones sueltas
+	LinkedList<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>(); // atracciones en promo
+	ArrayList<Atraccion> atraccionesCompradasSinPromo = new ArrayList<Atraccion>(); // atracciones sueltas
 	private int costoFinal;
 	private int tiempoFinal;
 
@@ -37,11 +37,15 @@ public class Usuario extends Taquilla {
 	public LinkedList<Atraccion> getAtraccionesCompradas() {
 		return atraccionesCompradas;
 	}
-	
+
 	public ArrayList<Promocion> getPromocionesAceptadas() {
 		return promocionesAceptadas;
 	}
-	
+
+	public void agregarAtraccionComprada(Atraccion a) {
+		atraccionesCompradas.add(a);
+	}
+
 	public boolean puedeComprar(Ofertable o) {
 		if (dineroYTiempoSuficientes(o) && o != null) {
 			return true;
@@ -125,7 +129,7 @@ public class Usuario extends Taquilla {
 				+ "\n[Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]" + "\n\n";
 
 	}
-	
+
 	public String nombreTipo() {
 		switch (this.tipoAtraccion) {
 		case 1: {
@@ -137,7 +141,7 @@ public class Usuario extends Taquilla {
 		case 3: {
 			return "EXPLORACION";
 		}
-		
+
 		}
 		return null;
 	}
@@ -145,6 +149,5 @@ public class Usuario extends Taquilla {
 	public int getId() {
 		return this.id;
 	}
-	
-	
+
 }

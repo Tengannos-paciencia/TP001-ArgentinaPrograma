@@ -59,6 +59,14 @@ public class Taquilla {
 		}
 		return null;
 	}
+	public Atraccion obtenerAtraccionPorIDAtraccion(int id) {
+		for (Atraccion atraccion : atracciones) {
+			if (atraccion.getID() == id) {
+				return atraccion;
+			}
+		}
+		return null;
+	}
 
 	public void ordenarLasPromociones() {
 		Collections.sort(this.promociones, new ComparadorDeOfertables());

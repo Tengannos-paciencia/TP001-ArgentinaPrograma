@@ -11,13 +11,14 @@ import java.util.List;
 import jdbc.ConnectionProvider;
 import model.Atraccion;
 import model.Promocion;
+import model.Taquilla;
 import promociones.PromoAbsoluto;
 import promociones.PromoAxB;
 import promociones.PromoPorcentual;
 
 public class PromocionDAO {
 	
-	public List<Promocion> findAll(List<Atraccion> listaAtracciones) throws SQLException {
+	public List<Promocion> findAll(Taquilla taquilla, List<Atraccion> listaAtracciones) throws SQLException {
 		String sql = "SELECT promociones.*, group_concat(ap.idAtracciones) AS \"atracciones\"\n" + "FROM promociones\n"
 				+ "JOIN atracciones_En_Promocion ap ON ap.idPromocion = promociones.id \n" + "GROUP BY promociones.id";
 		Connection conn = ConnectionProvider.getConnection();
@@ -25,8 +26,6 @@ public class PromocionDAO {
 		ResultSet resultados = statement.executeQuery();
 
 		Promocion promo = null;
-		AtraccionDAO atraccionDAO = new AtraccionDAO();
-		List<Atraccion> atraccionesDAO = atraccionDAO.findAll();
 
 		List<Promocion> promocion = new LinkedList<Promocion>();
 
@@ -40,12 +39,9 @@ public class PromocionDAO {
 
 			for (String id : idSpliteado) {
 				int idUsable = Integer.parseInt(id);
-				for (Atraccion cadaAtraccion : atraccionesDAO) {
-					if (idUsable == cadaAtraccion.getID()) {
-						atraccionesIncluidas.add(cadaAtraccion);
-					}
+				atraccionesIncluidas.add(taquilla.obtenerAtraccionPorIDAtraccion(idUsable));
 				}
-			}
+			
 
 			switch (tipoPromocion) {
 				case "PromoPorcentual": 
