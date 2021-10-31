@@ -75,7 +75,7 @@ public class Atraccion extends Ofertable {
 	public String toString() {
 
 		return "[" + nombre + ", costo: " + costo + " monedas, tiempo: " + tiempoEnMinutos + " minutos, cupo: " + cupo
-				+ ", tipo: " + tipoDeAtraccion + "]\n";
+				+ ", tipo: " + this.nombreTipo() + "]\n";
 	}
 
 	@Override
@@ -98,6 +98,21 @@ public class Atraccion extends Ofertable {
 		return this.id;
 	}
 
+	public String nombreTipo() {
+		switch (this.tipoDeAtraccion) {
+		case 1: {
+			return "TERROR";
+		}
+		case 2: {
+			return "AUDIOVISUAL";
+		}
+		case 3: {
+			return "EXPLORACION";
+		}
+
+		}
+		return null;
+	}
 	public List<Atraccion> getAtraccionesPorId(int id){
 		
 		List<Atraccion> atraccionesPorId = new ArrayList<Atraccion>();
@@ -109,6 +124,7 @@ public class Atraccion extends Ofertable {
 		}
 		return atraccionesPorId;
 	}
-
+	
+	
 	
 }
