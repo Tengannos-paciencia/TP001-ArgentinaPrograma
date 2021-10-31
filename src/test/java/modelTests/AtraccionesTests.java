@@ -14,7 +14,7 @@ public class AtraccionesTests {
 		int tipo = 1;
 
 		Atraccion atraccion1 = new Atraccion(1,"primeraAtraccion", 15, 150, 12, tipo);
-		String expected = "[primeraAtraccion, costo: 15 monedas, tiempo: 150 minutos, cupo: 12, tipo: 1]\n";
+		String expected = "[primeraAtraccion, costo: 15 monedas, tiempo: 150 minutos, cupo: 12, tipo: TERROR]\n";
 
 		assertEquals(expected, atraccion1.toString());
 	}
