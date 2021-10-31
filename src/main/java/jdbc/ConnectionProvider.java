@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionProvider {
-	private static String url = "jdbc:sqlite:parqueDelTerrorTest.db"; //CAMBIAR USERS POR NOMBRE
+	private static String url = "jdbc:sqlite:parqueDelTerror.db";
 	private static Connection connection;
 	
 	public static Connection getConnection () throws SQLException{
