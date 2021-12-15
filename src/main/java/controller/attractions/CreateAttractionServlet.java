@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Attraction;
+import model.Atraccion;
 import services.AttractionService;
 
 @WebServlet("/attractions/create.do")
@@ -38,7 +38,7 @@ public class CreateAttractionServlet extends HttpServlet {
 		Double duration = Double.parseDouble(req.getParameter("duration"));
 		Integer capacity = Integer.parseInt(req.getParameter("capacity"));
 
-		Attraction attraction = attractionService.create(name, cost, duration, capacity);
+		Atraccion attraction = attractionService.create(name, cost, duration, capacity);
 		
 		if (attraction.isValid()) {
 			resp.sendRedirect("/turismo/attractions/index.do");

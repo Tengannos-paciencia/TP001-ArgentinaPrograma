@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.User;
+import model.Usuario;
 import services.LoginService;
 
 @WebServlet("/login")
@@ -28,8 +28,8 @@ public class LoginServlet extends HttpServlet {
     	String username = req.getParameter("username");
     	String password = req.getParameter("password");
     	
-    	User user = loginService.login(username, password);
-    	
+    	Usuario user = loginService.login(username, password);
+    	 
     	if (!user.isNull()) {
     		req.getSession().setAttribute("user", user);
     		resp.sendRedirect("index.jsp");    		

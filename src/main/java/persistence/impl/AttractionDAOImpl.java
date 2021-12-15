@@ -7,21 +7,21 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Attraction;
+import model.Atraccion;
 import persistence.AttractionDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
 
 public class AttractionDAOImpl implements AttractionDAO {
 
-	public List<Attraction> findAll() {
+	public List<Atraccion> findAll() {
 		try {
 			String sql = "SELECT * FROM ATTRACTIONS";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
 
-			List<Attraction> attractions = new LinkedList<Attraction>();
+			List<Atraccion> attractions = new LinkedList<Atraccion>();
 			while (resultados.next()) {
 				attractions.add(toAttraction(resultados));
 			}
@@ -33,7 +33,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 	}
 
 	@Override
-	public Attraction find(Integer id) {
+	public Atraccion find(Integer id) {
 		try {
 			String sql = "SELECT * FROM ATTRACTIONS WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
@@ -42,7 +42,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 			
 			ResultSet resultados = statement.executeQuery();
 
-			Attraction attraction = null;
+			Atraccion attraction = null;
 			if (resultados.next()) {
 				attraction = toAttraction(resultados);
 			}
@@ -53,13 +53,13 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 	}
 	
-	private Attraction toAttraction(ResultSet attractionRegister) throws SQLException {
-		return new Attraction(attractionRegister.getInt(1), attractionRegister.getString(2),
+	private Atraccion toAttraction(ResultSet attractionRegister) throws SQLException {
+		return new Atraccion(attractionRegister.getInt(1), attractionRegister.getString(2),
 				attractionRegister.getInt(3), attractionRegister.getDouble(4), attractionRegister.getInt(5));
 	}
 
 	@Override
-	public int insert(Attraction attraction) {
+	public int insert(Atraccion attraction) {
 		try {
 			String sql = "INSERT INTO ATTRACTIONS (NAME, COST, DURATION, CAPACITY) VALUES (?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
@@ -79,7 +79,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 	}
 
 	@Override
-	public int update(Attraction attraction) {
+	public int update(Atraccion attraction) {
 		try {
 			String sql = "UPDATE ATTRACTIONS SET NAME = ?, COST = ?, DURATION = ?, CAPACITY = ? WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
@@ -100,7 +100,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 	}
 
 	@Override
-	public int delete(Attraction attraction) {
+	public int delete(Atraccion attraction) {
 		try {
 			String sql = "DELETE FROM ATTRACTIONS WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();

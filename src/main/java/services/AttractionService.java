@@ -2,19 +2,19 @@ package services;
 
 import java.util.List;
 
-import model.Attraction;
+import model.Atraccion;
 import persistence.AttractionDAO;
 import persistence.commons.DAOFactory;
 
 public class AttractionService {
 
-	public List<Attraction> list() {
+	public List<Atraccion> list() {
 		return DAOFactory.getAttractionDAO().findAll();
 	}
 
-	public Attraction create(String name, Integer cost, Double duration, Integer capacity) {
+	public Atraccion create(String name, Integer cost, Double duration, Integer capacity) {
 
-		Attraction attraction = new Attraction(name, cost, duration, capacity);
+		Atraccion attraction = new Atraccion(name, cost, duration, capacity);
 
 		if (attraction.isValid()) {
 			AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
@@ -25,10 +25,10 @@ public class AttractionService {
 		return attraction;
 	}
 
-	public Attraction update(Integer id, String name, Integer cost, Double duration, Integer capacity) {
+	public Atraccion update(Integer id, String name, Integer cost, Double duration, Integer capacity) {
 
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
-		Attraction attraction = attractionDAO.find(id);
+		Atraccion attraction = attractionDAO.find(id);
 
 		attraction.setName(name);
 		attraction.setCost(cost);
@@ -44,13 +44,13 @@ public class AttractionService {
 	}
 
 	public void delete(Integer id) {
-		Attraction attraction = new Attraction(id, null, null, null, null);
+		Atraccion attraction = new Atraccion(id, null, null, null, null);
 
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		attractionDAO.delete(attraction);
 	}
 
-	public Attraction find(Integer id) {
+	public Atraccion find(Integer id) {
 		return DAOFactory.getAttractionDAO().find(id);
 	}
 

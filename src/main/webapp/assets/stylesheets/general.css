@@ -1,0 +1,52 @@
+body{
+    background-color: #212529;
+}
+
+footer{
+    color: #ffffff;
+}
+
+nav#navFijo{
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+img.imagen-carrusel{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: auto;
+}
+
+.carousel-inner img {
+    margin: auto;
+}
+
+.carrusel-personalizado{
+    margin: auto;
+}
+
+.dataTables_length, .dataTables_filter{
+    color: white;
+}
+
+.col-sm-12, .col-md-5{
+    color: white;
+}
+
+.page-link{
+    background-color: #212529;
+    border: 1px solid #ffffff;
+    color: white;
+}
+
+.page-item.disabled .page-link{
+    background-color: #212529;
+    color: #868686;
+}
+
+.letrasDelLogin{
+	color: #89f5d8;
+}

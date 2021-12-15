@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.User;
+import model.Usuario;
 import services.UserService;
 
 @WebServlet("/users/create.do")
@@ -38,7 +38,7 @@ public class CreateUserServlet extends HttpServlet {
 		Integer coins = Integer.parseInt(req.getParameter("coins"));
 		Double time = Double.parseDouble(req.getParameter("time"));
 
-		User tmp_user = userService.create(username, password, coins, time);
+		Usuario tmp_user = userService.create(username, password, coins, time);
 		
 		if (tmp_user.isValid()) {
 			resp.sendRedirect("/turismo/users/index.do");

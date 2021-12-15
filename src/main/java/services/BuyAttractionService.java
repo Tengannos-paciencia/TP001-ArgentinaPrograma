@@ -3,8 +3,8 @@ package services;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.Attraction;
-import model.User;
+import model.Atraccion;
+import model.Usuario;
 import persistence.AttractionDAO;
 import persistence.UserDAO;
 import persistence.commons.DAOFactory;
@@ -17,8 +17,8 @@ public class BuyAttractionService {
 	public Map<String, String> buy(Integer userId, Integer attractionId) {
 		Map<String, String> errors = new HashMap<String, String>();
 
-		User user = userDAO.find(userId);
-		Attraction attraction = attractionDAO.find(attractionId);
+		Usuario user = userDAO.find(userId);
+		Atraccion attraction = attractionDAO.find(attractionId);
 
 		if (!attraction.canHost(1)) {
 			errors.put("attraction", "No hay cupo disponible");

@@ -2,19 +2,19 @@ package services;
 
 import java.util.List;
 
-import model.Attraction;
-import model.User;
+import model.Atraccion;
+import model.Usuario;
 import persistence.AttractionDAO;
 import persistence.commons.DAOFactory;
 
 public class UserService {
 
-	public List<User> list() {
+	public List<Usuario> list() {
 		return DAOFactory.getUserDAO().findAll();
 	}
 
-	public User create(String username, String password, Integer coins, Double time) {
-		User user = new User(-1, username, password, coins, time, false);
+	public Usuario create(String username, String password, Integer coins, Double time) {
+		Usuario user = new Usuario(-1, username, password, coins, time, false);
 		user.setPassword(password);
 
 		if (user.isValid()) {

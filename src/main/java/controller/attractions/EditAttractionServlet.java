@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Attraction;
+import model.Atraccion;
 import services.AttractionService;
 
 @WebServlet("/attractions/edit.do")
@@ -27,7 +27,7 @@ public class EditAttractionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 
-		Attraction attraction = attractionService.find(id);
+		Atraccion attraction = attractionService.find(id);
 		req.setAttribute("attraction", attraction);
 
 		RequestDispatcher dispatcher = getServletContext()
@@ -44,7 +44,7 @@ public class EditAttractionServlet extends HttpServlet {
 		Double duration = Double.parseDouble(req.getParameter("duration"));
 		Integer capacity = Integer.parseInt(req.getParameter("capacity"));
 
-		Attraction attraction = attractionService.update(id, name, cost, duration, capacity);
+		Atraccion attraction = attractionService.update(id, name, cost, duration, capacity);
 
 		if (attraction.isValid()) {
 			resp.sendRedirect("/turismo/attractions/index.do");

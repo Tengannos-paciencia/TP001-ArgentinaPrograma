@@ -7,13 +7,12 @@
 <jsp:include page="partials/head.jsp"></jsp:include>
 </head>
 <body>
-
+	<jsp:include page="partials/nav1.jsp"></jsp:include>
+	
 	<div class="col-lg-5 mx-auto p-3 py-md-5">
 
 		<main>
-			<h1>Turismo en la Tierra Media</h1>
-
-
+			
 			<c:if test="${flash != null}">
 				<div class="alert alert-danger">
 					<p>
@@ -33,12 +32,12 @@
 			<form action="login" method="post">
 
 				<div class="mb-3">
-					<label for="username" class="form-label">Usuario</label> <input
+					<label for="username" class="form-label letrasDelLogin">Usuario</label> <input
 						class="form-control" name="username">
 				</div>
 
 				<div class="mb-3">
-					<label for="password" class="form-label">Contraseña</label> <input
+					<label for="password" class="form-label letrasDelLogin">Contraseña</label> <input
 						type="password" class="form-control" name="password">
 				</div>
 

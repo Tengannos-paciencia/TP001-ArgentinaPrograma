@@ -1,10 +1,10 @@
 package persistence;
 
-import model.User;
+import model.Usuario;
 import persistence.commons.GenericDAO;
 
-public interface UserDAO extends GenericDAO<User> {
+public interface UserDAO extends GenericDAO<Usuario> {
 
-	public abstract User findByUsername(String username);
+	public abstract Usuario findByUsername(String username);
 	
 }
