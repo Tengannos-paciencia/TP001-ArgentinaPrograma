@@ -9,9 +9,9 @@
 
 	<main class="container">
 		<div class="bg-dark p-4 rounded letrasDelLogin">
-			
+			<!-- borrar el nombre -->
 			<h1>
-				¡Bienvenido, <c:out value="${user.nombre}" />!
+				<c:out value="${user.nombre}" />
 			</h1>
 			
 			<jsp:include page="partials/carrousel.jsp"></jsp:include>

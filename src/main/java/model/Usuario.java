@@ -1,23 +1,27 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 import utils.Crypt;
 
 public class Usuario {
 
-	private int id;
+	private Integer id;
 	private String nombre, password;
-	private int dineroDisponible;
-	private int tiempoDisponible;
-	private int tipoAtraccion;
+	private Integer dineroDisponible;
+	private Integer tiempoDisponible;
+	private Integer tipoAtraccion;
 	ArrayList<Promocion> promocionesAceptadas = new ArrayList<Promocion>();
 	LinkedList<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>(); // atracciones en promo
 	ArrayList<Atraccion> atraccionesCompradasSinPromo = new ArrayList<Atraccion>(); // atracciones sueltas
-	private int costoFinal;
-	private int tiempoFinal;
-	private int isAdmin;
+	private Integer costoFinal;
+	private Integer tiempoFinal;
+	private Integer isAdmin;
+	
+	private HashMap<String, String> errors;
 
 	public Usuario(int id, String nombre, int presupuesto, int tiempoEnMinutos, int tipo) {
 		this.id = id;
@@ -34,6 +38,19 @@ public class Usuario {
 		this.dineroDisponible = presupuesto;
 		this.tiempoDisponible = tiempoEnMinutos;
 		this.tipoAtraccion = tipo;
+		this.isAdmin = isAdmin;
+	}
+	
+	
+
+	public Usuario(String nombre, String password, Integer dineroDisponible, Integer tiempoDisponible,
+			Integer tipoAtraccion, Integer isAdmin) {
+		super();
+		this.nombre = nombre;
+		this.password = password;
+		this.dineroDisponible = dineroDisponible;
+		this.tiempoDisponible = tiempoDisponible;
+		this.tipoAtraccion = tipoAtraccion;
 		this.isAdmin = isAdmin;
 	}
 
@@ -135,9 +152,16 @@ public class Usuario {
 
 	@Override
 	public String toString() {
+		
+		return nombre +" "+password+" "+dineroDisponible+" "+tiempoDisponible+" "+tipoAtraccion+" "+isAdmin;
+		
+		
+		/*
 		return nombre + ", Tipo de atraccion favorita: " + this.nombreTipo() + "\nPromociones compradas:"
 				+ promocionesAceptadas + "\nAtracciones sin promo compradas: " + atraccionesCompradasSinPromo
 				+ "\n[Total a gastar:" + costoFinal + ", Tiempo total estimado: " + tiempoFinal + "]" + "\n\n";
+				
+		*/
 
 	}
 
@@ -166,7 +190,6 @@ public class Usuario {
 	}
 	
 	public boolean checkPassword(String password) {
-		// this.password en realidad es el hash del password
 		return Crypt.match(password, this.password);
 	}
 
@@ -186,6 +209,30 @@ public class Usuario {
 		}
 	}
 	
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (dineroDisponible < 0) {
+			errors.put("coins", "No debe ser negativo");
+		}
+		if (tiempoDisponible < 0) {
+			errors.put("time", "No debe ser negativo");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
+	
+	
+	public Integer getIsAdmin(){
+		return this.isAdmin;
+	}
 	
 	
 	

@@ -6,23 +6,35 @@ import java.util.List;
 import java.util.Map;
 
 public class Atraccion extends Ofertable{
-	protected int id;
+	protected Integer id;
 	protected String nombre;
-	protected int tipoDeAtraccion;
-	protected int tiempoEnMinutos;
-	protected int costo;
-	protected int cupo;
+	protected Integer tipoDeAtraccion;
+	protected Integer tiempoEnMinutos;
+	protected Integer costo;
+	protected Integer cupo;
+	protected String descripcion;
 	
 	private Map<String, String> errors;
 	
 	
-	public Atraccion(int id, String nombre, int costo, int tiempo, int cupo, int tipo) {
+	public Atraccion(Integer id, String nombre, Integer costo, Integer tiempo, Integer cupo, Integer tipo, String descripcion) {
 		this.id = id;
 		this.nombre = nombre;
 		this.tiempoEnMinutos = tiempo;
 		this.costo = costo;
 		this.cupo = cupo;
 		this.tipoDeAtraccion = tipo;
+		this.descripcion = descripcion;
+	}	
+	
+	public Atraccion(String nombre, Integer costo, Integer tiempo, Integer cupo, Integer tipo, String descripcion) {
+		
+		this.nombre = nombre;
+		this.tiempoEnMinutos = tiempo;
+		this.costo = costo;
+		this.cupo = cupo;
+		this.tipoDeAtraccion = tipo;
+		this.descripcion = descripcion;
 	}
 
 	public String getNombre() {
@@ -137,21 +149,57 @@ public class Atraccion extends Ofertable{
 		errors = new HashMap<String, String>();
 
 		if (costo <= 0) {
-			errors.put("cost", "Debe ser positivo");
+			errors.put("costo", "Debe ser positivo"); //costo pertenece al formulario creo, verificar
 		}
-		if (tiempoEnMinutos <= 0) {
-			errors.put("duration", "Debe ser positivo");
+		if (tiempoEnMinutos <= 0) { 
+			errors.put("tiempo", "Debe ser positivo"); //tiempo pertenece al formulario creo, verificar
 		}
 		if (tiempoEnMinutos > 60) {
-			errors.put("duration", "Excede el tiempo máximo");
+			errors.put("tiempo", "Excede el tiempo máximo"); //tiempo pertenece al formulario creo, verificar
 		}
 		if (cupo <= 0) {
-			errors.put("capacity", "Debe ser positivo");
+			errors.put("cupo", "Debe ser positivo"); //cupo pertenece al formulario creo, verificar
+		}
+		if (tipoDeAtraccion < 0 || tipoDeAtraccion >3) {
+			errors.put("tipo", "Debe ser tipo 1, 2, o 3"); //tipo pertenece al formulario creo, verificar
+		}
+		if (descripcion == "") {
+			errors.put("descripcion", "Debe ingresar una descripcion"); //descripcion pertenece al formulario creo, verificar
 		}
 	}
 	
 	public Map<String, String> getErrors() {
 		return errors;
 	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setTipoDeAtraccion(int tipoDeAtraccion) {
+		this.tipoDeAtraccion = tipoDeAtraccion;
+	}
+
+	public void setTiempoEnMinutos(int tiempoEnMinutos) {
+		this.tiempoEnMinutos = tiempoEnMinutos;
+	}
+
+	public void setCupo(int cupo) {
+		this.cupo = cupo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+	
+	
 	
 }

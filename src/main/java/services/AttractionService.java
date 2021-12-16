@@ -12,39 +12,39 @@ public class AttractionService {
 		return DAOFactory.getAttractionDAO().findAll();
 	}
 
-	public Atraccion create(String name, Integer cost, Double duration, Integer capacity) {
+	public Atraccion create(String nombre, Integer costo, Integer tiempo, Integer cupo, Integer tipo, String descripcion) {
 
-		Atraccion attraction = new Atraccion(name, cost, duration, capacity);
+		Atraccion attraction = new Atraccion(nombre, costo, tiempo, cupo, tipo, descripcion);
 
 		if (attraction.isValid()) {
 			AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 			attractionDAO.insert(attraction);
-			// XXX: si no devuelve "1", es que hubo más errores
 		}
 
 		return attraction;
 	}
 
-	public Atraccion update(Integer id, String name, Integer cost, Double duration, Integer capacity) {
+	public Atraccion update(Integer id, String nombre, Integer costo, Integer tiempo, Integer cupo, Integer tipo, String descripcion) {
 
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		Atraccion attraction = attractionDAO.find(id);
 
-		attraction.setName(name);
-		attraction.setCost(cost);
-		attraction.setDuration(duration);
-		attraction.setCapacity(capacity);
+		attraction.setNombre(nombre);
+		attraction.setCosto(costo);
+		attraction.setTiempoEnMinutos(tiempo);
+		attraction.setCupo(cupo);
+		attraction.setTipoDeAtraccion(tipo);
+		attraction.setDescripcion(descripcion);
 
 		if (attraction.isValid()) {
 			attractionDAO.update(attraction);
-			// XXX: si no devuelve "1", es que hubo más errores
 		}
 
 		return attraction;
 	}
 
 	public void delete(Integer id) {
-		Atraccion attraction = new Atraccion(id, null, null, null, null);
+		Atraccion attraction = new Atraccion(id, null, null, null, null, null, null);
 
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		attractionDAO.delete(attraction);

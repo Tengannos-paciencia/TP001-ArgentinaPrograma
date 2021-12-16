@@ -17,14 +17,16 @@ public class UserDAOImpl implements UserDAO {
 
 	public int insert(Usuario user) {
 		try {
-			String sql = "INSERT INTO usuarios (nombre, password, dineroDisponible, tiempoDisponible) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO usuarios (nombre, password, dineroDisponible, tiempoDisponible, tipoFavorito, isAdmin) VALUES (?, ?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, user.getNombre());
 			statement.setString(2, user.getPassword());
 			statement.setInt(3, user.getDineroDisponible());
-			statement.setDouble(4, user.getTiempoDisponible());
+			statement.setInt(4, user.getTiempoDisponible());
+			statement.setInt(5, user.getTipoAtraccion());
+			statement.setInt(6, user.getIsAdmin());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -40,8 +42,8 @@ public class UserDAOImpl implements UserDAO {
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, user.getDineroDisponible());
-			statement.setDouble(2, user.getTiempoDisponible());
-			statement.setDouble(3, user.getId());
+			statement.setInt(2, user.getTiempoDisponible());
+			statement.setInt(3, user.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -52,7 +54,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public int delete(Usuario user) {
 		try {
-			String sql = "DELETE FROM usuarios WHERE nombre = ?";
+			String sql = "DELETE FROM usuarios WHERE nombre = ?"; //cambiar por ID
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);

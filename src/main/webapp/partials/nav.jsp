@@ -11,28 +11,20 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="index.jsp">Inicio</a>
+					aria-current="page" href="/TP-ArgentinaPrograma-Web/index.jsp">Inicio</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Atracciones</a>
+				<li class="nav-item"><a class="nav-link" href="/TP-ArgentinaPrograma-Web/atracciones/index.do">Atracciones</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a	class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					<a	class="nav-link " href="/TP-ArgentinaPrograma-Web/promociones/index.do" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Promos
 					</a>
-					
-					<ul class="dropdown-menu dropdown-menu-dark"
-						aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Absoluta</a></li>
-						<li><a class="dropdown-item" href="#">Procentual</a></li>
-						<li><a class="dropdown-item" href="#">AxB</a></li>
-					</ul>
 				</li>
-			</ul>
-			<ul class="navbar-nav me-auto mb-2 mb-md-0">
+				
 				<c:if test="${user.isAdmin()}">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/turismo/users/index.do">Usuarios</a></li>
+						aria-current="page" href="/TP-ArgentinaPrograma-Web/usuarios/index.do">Usuarios</a></li>
 				</c:if>
 			</ul>
 			<ul class="navbar-nav">

@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class Ofertable {
+public abstract class Ofertable {
 	protected List<Atraccion> atracciones;
 	protected int costoTotal;
 	protected int tiempoTotal;
