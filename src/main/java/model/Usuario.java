@@ -23,7 +23,7 @@ public class Usuario {
 	
 	private HashMap<String, String> errors;
 
-	public Usuario(int id, String nombre, int presupuesto, int tiempoEnMinutos, int tipo) {
+	public Usuario(Integer id, String nombre, Integer presupuesto, Integer tiempoEnMinutos, Integer tipo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.dineroDisponible = presupuesto;
@@ -31,7 +31,7 @@ public class Usuario {
 		this.tipoAtraccion = tipo;
 	}
 	
-	public Usuario(int id, String nombre, String password, int presupuesto, int tiempoEnMinutos, int tipo, int isAdmin) {
+	public Usuario(Integer id, String nombre, String password, Integer presupuesto, Integer tiempoEnMinutos, Integer tipo, Integer isAdmin) {
 		this.id = id;
 		this.nombre = nombre;
 		this.password = password;
@@ -76,6 +76,20 @@ public class Usuario {
 
 	public boolean puedeComprar(Ofertable o) {
 		if (dineroYTiempoSuficientes(o) && o != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean puedeCostear(Ofertable o) {
+		if (this.dineroDisponible >= o.getCostoTotal() && o != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean tiempoDisponible(Ofertable o) {
+		if (this.tiempoDisponible >= o.getTiempoTotal() && o != null) {
 			return true;
 		}
 		return false;
@@ -233,9 +247,22 @@ public class Usuario {
 	public Integer getIsAdmin(){
 		return this.isAdmin;
 	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDineroDisponible(Integer dineroDisponible) {
+		this.dineroDisponible = dineroDisponible;
+	}
+
+	public void setTiempoDisponible(Integer tiempoDisponible) {
+		this.tiempoDisponible = tiempoDisponible;
+	}
 	
+	public void setTipo(Integer tipoAtraccion) {
+		this.tipoAtraccion = tipoAtraccion;
+	}
 	
-	
-	//agregar set password y get password CON MD5
 
 }

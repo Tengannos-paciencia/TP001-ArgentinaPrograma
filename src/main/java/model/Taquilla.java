@@ -3,7 +3,9 @@ package model;
 import java.util.Collections;
 import java.util.List;
 
-import ofertable.ComparadorDeOfertables;
+import filters.ComparadorDeOfertables;
+
+
 
 public class Taquilla {
 

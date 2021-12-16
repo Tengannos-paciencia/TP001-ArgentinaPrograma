@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import ofertable.Ofertable;
+
 
 public abstract class Promocion extends Ofertable {
 	protected int id;

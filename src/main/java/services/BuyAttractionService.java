@@ -20,19 +20,19 @@ public class BuyAttractionService {
 		Usuario user = userDAO.find(userId);
 		Atraccion attraction = attractionDAO.find(attractionId);
 
-		if (!attraction.canHost(1)) {
+		if (!attraction.cupoDisponible()) {
 			errors.put("attraction", "No hay cupo disponible");
 		}
-		if (!user.canAfford(attraction)) {
+		if (!user.puedeCostear(attraction)) {
 			errors.put("user", "No tienes dinero suficiente");
 		}
-		if (!user.canAttend(attraction)) {
+		if (!user.tiempoDisponible(attraction)) {
 			errors.put("user", "No tienes tiempo suficiente");
 		}
 
 		if (errors.isEmpty()) {
-			user.addToItinerary(attraction);
-			attraction.host(1);
+			user.aceptarOfertado(attraction);
+			attraction.ocuparAtraccion();
 
 			attractionDAO.update(attraction);
 			userDAO.update(user);

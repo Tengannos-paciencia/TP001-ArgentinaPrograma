@@ -14,7 +14,7 @@ import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
 
 public class UserDAOImpl implements UserDAO {
-
+	@Override
 	public int insert(Usuario user) {
 		try {
 			String sql = "INSERT INTO usuarios (nombre, password, dineroDisponible, tiempoDisponible, tipoFavorito, isAdmin) VALUES (?, ?, ?, ?, ?, ?)";
@@ -34,7 +34,7 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
+	@Override
 	public int update(Usuario user) {
 		try {
 			String sql = "UPDATE usuarios SET dineroDisponible = ?, tiempoDisponible = ? WHERE id = ?";
@@ -51,14 +51,14 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
+	@Override
 	public int delete(Usuario user) {
 		try {
-			String sql = "DELETE FROM usuarios WHERE nombre = ?"; //cambiar por ID
+			String sql = "DELETE FROM usuarios WHERE id = ?"; 
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, user.getNombre());
+			statement.setInt(1, user.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -66,7 +66,7 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
+	@Override
 	public Usuario findByUsername(String username) {
 		try {
 			String sql = "SELECT * FROM usuarios WHERE nombre = ?";
@@ -107,7 +107,7 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
+	@Override
 	public int countAll() {
 		try {
 			String sql = "SELECT COUNT(1) AS TOTAL FROM usuarios";
