@@ -47,6 +47,8 @@
 			</form>
 
 		</main>
+		
+		<jsp:include page="partials/footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

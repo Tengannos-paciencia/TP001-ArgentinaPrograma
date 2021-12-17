@@ -12,6 +12,8 @@ nav#navFijo{
     z-index: 1020;
 }
 
+
+
 img.imagen-carrusel{
     width: 75%;
     margin-left: auto;
@@ -49,4 +51,8 @@ img.imagen-carrusel{
 
 .letrasDelLogin{
 	color: #89f5d8;
+}
+
+div>mb-3>divFormulario{
+	color: white; 
 }

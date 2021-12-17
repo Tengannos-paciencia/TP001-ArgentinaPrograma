@@ -9,7 +9,6 @@
 
 	<main class="container">
 		<div class="bg-dark p-4 rounded letrasDelLogin">
-			<!-- borrar el nombre -->
 			<h1>
 				<c:out value="${user.nombre}" />
 			</h1>
@@ -18,5 +17,7 @@
 			
 		</div>
 	</main>
+	
+	<jsp:include page="partials/footer.jsp"></jsp:include>
 </body>
 </html>

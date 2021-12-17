@@ -27,8 +27,8 @@
 			</div>
 		</c:if>
 
-		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Atracciones</h1>
+		<div class="bg-dark p-4 mb-3 rounded">
+			<h1 class="text-light bg-dark">Atracciones</h1>
 		</div>
 
 		<c:if test="${user.isAdmin()}">
@@ -38,17 +38,23 @@
 				</a>
 			</div>
 		</c:if>
-		<table class="table table-stripped table-hover">
-			<thead>
-				<tr>
-					<th>Atracci&oacute;n</th>
-					<th>Costo</th>
-					<th>Duraci&oacute;n</th>
-					<th>Cupo</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
+		
+		
+		<div class="container my-3">
+			<div class="table-responsive">
+				<table
+					class="datatable table table-bordered table-striped table-dark"
+					class="display" style="width: 100%">
+					<thead>
+						<tr>
+							<th class="sorting" tabindex="0" >Atracci&oacute;n</th>
+							<th class="sorting" tabindex="0" >Costo</th>
+							<th class="sorting" tabindex="0" >Duraci&oacute;n</th>
+							<th class="sorting" tabindex="0" >Cupo</th>
+							<th class="sorting" tabindex="0" >Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
 				<c:forEach items="${attractions}" var="attraction">
 					<tr>
 						<td><strong><c:out value="${attraction.nombre}"></c:out></strong>
@@ -58,12 +64,8 @@
 						<td><c:out value="${attraction.cupo}"></c:out></td>
 
 						<td><c:if test="${user.isAdmin()}">
-								<a href="edit.do?id=${attraction.getId()}"
-									class="btn btn-light rounded-0" role="button"><i
-									class="bi bi-pencil-fill"></i></a>
-								<a href="delete.do?id=${attraction.getId()}"
-									class="btn btn-danger rounded" role="button"><i
-									class="bi bi-x-circle-fill"></i></a>
+								<a href="edit.do?id=${attraction.getId()}" class="btn btn-light rounded-0" role="button"><i class="fas fa-pen-fancy"></i></a>
+								<a href="delete.do?id=${attraction.getId()}" class="btn btn-danger rounded" role="button"><i class="far fa-trash-alt"></i></a>
 							</c:if> 
 							
 							<c:choose>
@@ -80,9 +82,10 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
-
+				</table>
+			</div>
+		</div>
 	</main>
-
+<jsp:include page="../../partials/footer.jsp"></jsp:include>
 </body>
 </html>

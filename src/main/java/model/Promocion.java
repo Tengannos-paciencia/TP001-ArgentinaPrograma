@@ -6,14 +6,14 @@ import java.util.List;
 
 
 public abstract class Promocion extends Ofertable {
-	protected int id;
+	protected Integer id;
 	protected List<Atraccion> atracciones;
 	protected String nombre;
-	protected int tipoDePromocion;
-	protected int costo;
-	protected String tipoPromo;
-	protected int costoTotal;
-	protected int tiempoTotal;
+	protected Integer tipoDePromocion; // terror, audiovisual, exploracion
+	protected Integer costo;
+	protected String tipoPromo; // absoluta, porcentual, AxB --> en BD aparece como "tipoDeDescuento"
+	protected Integer costoTotal;
+	protected Integer tiempoTotal;
 
 	public Promocion() {
 	}
@@ -38,6 +38,66 @@ public abstract class Promocion extends Ofertable {
 		this.setTiempoTotal();
 		this.tipoPromo = tipoPromo;
 		this.setCosto();
+	}
+	
+	
+
+	public Promocion(Integer id, String nombre, String tipoPromo/*promo*/, Integer tipoDePromocion/* atracciones*/ ) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.tipoDePromocion = tipoDePromocion; //es el tipo de las atracciones
+		this.tipoPromo = tipoPromo; //categoria de la promocion
+	}
+
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Atraccion> getAtracciones() {
+		return atracciones;
+	}
+
+	public void setAtracciones(List<Atraccion> atracciones) {
+		this.atracciones = atracciones;
+	}
+
+	public Integer getTipoDePromocion() {
+		return tipoDePromocion;
+	}
+
+	public void setTipoDePromocion(Integer tipoDePromocion) {
+		this.tipoDePromocion = tipoDePromocion;
+	}
+
+	public String getTipoPromo() {
+		return tipoPromo;
+	}
+
+	public void setTipoPromo(String tipoPromo) {
+		this.tipoPromo = tipoPromo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setCosto(Integer costo) {
+		this.costo = costo;
+	}
+
+	public void setCostoTotal(Integer costoTotal) {
+		this.costoTotal = costoTotal;
+	}
+
+	public void setTiempoTotal(Integer tiempoTotal) {
+		this.tiempoTotal = tiempoTotal;
 	}
 
 	public int getTipo() {

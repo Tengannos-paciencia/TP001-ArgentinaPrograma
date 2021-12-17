@@ -38,13 +38,13 @@
 						aria-labelledby="navbarDropdown">
 						<li>
 							<a class="dropdown-item disabled" style="color: black;">
-								<i title="monedas" style="color: gold;" class="bi bi-coin"></i>
+								<i title="monedas" style="color: gold;" class="fab fa-bitcoin"></i>
 								<c:out value="$ ${user.dineroDisponible}"></c:out>
 							</a>
 						</li>
 						<li>
 							<a class="dropdown-item disabled" style="color: black;">
-								<i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i>
+								<i title="tiempo" style="color: blue;" class="far fa-clock"></i>
 								<c:out value="${user.tiempoDisponible}h"></c:out>
 							</a>
 						</li>

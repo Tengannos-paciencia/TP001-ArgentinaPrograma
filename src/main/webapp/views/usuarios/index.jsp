@@ -27,8 +27,8 @@
 			</div>
 		</c:if>
 
-		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Usuarios</h1>
+		<div class="bg-dark p-4 mb-3 rounded">
+			<h1 class="text-light bg-dark">Usuarios</h1>
 		</div>
 
 		<c:if test="${user.isAdmin()}">
@@ -38,46 +38,52 @@
 				</a>
 			</div>
 		</c:if>
-		<table class="table table-stripped table-hover">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Dinero Disponible</th>
-					<th>Tiempo Disponible</th>
-					<th>Rol</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${users}" var="tmp_user">
-					<tr>
-						<td><strong><c:out value="${tmp_user.nombre}"></c:out></strong></td>
-						<td><c:out value="${tmp_user.dineroDisponible}"></c:out></td>
-						<td><c:out value="${tmp_user.tiempoDisponible}"></c:out></td>
-						<td>
-							<c:choose>
-								<c:when test="${tmp_user.isAdmin()}">
-									Admin
-								</c:when>
-								<c:otherwise>
-									Normal
-								</c:otherwise>
-							</c:choose>						
-						</td>
-						<td><c:if test="${user.isAdmin() && (!tmp_user.isAdmin() || tmp_user.id == user.id)}">
-								<a href="usuarios/edit.do?id=${tmp_user.id}"
-									class="btn btn-light rounded-0" role="button"><i
-									class="bi bi-pencil-fill"></i></a>
-								<a href="usuarios/delete.do?id=${tmp_user.id}"
-									class="btn btn-danger rounded" role="button"><i
-									class="bi bi-x-circle-fill"></i></a>
-							</c:if></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-
+	
+		<div class="container my-3">
+	        <div class="table-responsive">
+	            <table class="datatable table table-bordered table-striped table-dark" class="display"
+	                style="width:100%">
+	                <thead>
+	                    <tr>
+	                        <th class="sorting" tabindex="0" >Nombre </th>
+	                        <th class="sorting" tabindex="0" >Dinero Disponible </th>
+	                        <th class="sorting" tabindex="0" >Tiempo Disponible </th>
+	                        <th class="sorting sorting_desc" >Rol </th>
+	                        <th class="sorting" tabindex="0" >Acciones </th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+			          <c:forEach items="${users}" var="tmp_user">
+						<tr>
+							<td><strong><c:out value="${tmp_user.nombre}"></c:out></strong></td>
+							<td><c:out value="${tmp_user.dineroDisponible}"></c:out></td>
+							<td><c:out value="${tmp_user.tiempoDisponible}"></c:out></td>
+							<td>
+								<c:choose>
+									<c:when test="${tmp_user.isAdmin()}">
+										Admin
+									</c:when>
+									<c:otherwise>
+										Normal
+									</c:otherwise>
+								</c:choose>						
+							</td>
+							<td><c:if test="${user.isAdmin() && (!tmp_user.isAdmin() || tmp_user.id == user.id)}">
+									<a href="usuarios/edit.do?id=${tmp_user.id}"
+										class="btn btn-light rounded-0" role="button"><i
+										class="fas fa-pen-fancy"></i></a>
+									<a href="usuarios/delete.do?id=${tmp_user.id}"
+										class="btn btn-danger rounded" role="button"><i
+										class="far fa-trash-alt"></i></a>
+								</c:if></td>
+						</tr>
+					   </c:forEach>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
 	</main>
-
+<jsp:include page="../../partials/footer.jsp"></jsp:include>
 </body>
+
 </html>

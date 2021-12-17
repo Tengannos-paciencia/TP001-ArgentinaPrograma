@@ -22,5 +22,6 @@
 			<jsp:include page="/views/usuarios/form.jsp"></jsp:include>
 		</form>
 	</main>
+	<jsp:include page="../../partials/footer.jsp"></jsp:include>
 </body>
 </html>
